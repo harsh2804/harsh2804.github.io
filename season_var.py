@@ -15,7 +15,7 @@ import pandas as pd
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvas
 import plotly.graph_objects as go
-from bokeh.resources import INLINE
+#from bokeh.resources import INLINE
 import panel as pn
 import numpy as np
 import datetime

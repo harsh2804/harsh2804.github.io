@@ -236,7 +236,7 @@ def p1(s,s1,s2,s3,s4):
  df_2.columns = ['Statistics','values']
  df_2 = df_2[df_2['Statistics'].isin(l1)]
  df_2['Statistics'] = df_2['Statistics'].replace({'50%':'Median','mean':'Mean','std':'Standard Deviation','max':'Maximum'})
- df_2.set_index('Statistics')
+ df_2.set_index('Statistics',inplace=True)
  print(df_2)
  d.value =  df_2
     

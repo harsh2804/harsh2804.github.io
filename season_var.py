@@ -140,7 +140,7 @@ table_with_export_buttons = pn.pane.HTML("<h1>hello</h1>",sizing_mode='stretch_w
 
 #file_download_csv = pn.widgets.FileDownload(filename="Statistical.csv", button_type="primary")   
 
-file_download = pn.widgets.FileDownload(file='figure.png', filename='figure.png')
+file_download = pn.widgets.FileDownload(file='figure.png', filename='figure.png',button_type='green',label='Download Plot',name='Click to download chart')
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 def p1(s,s1,s2,s3,s4):

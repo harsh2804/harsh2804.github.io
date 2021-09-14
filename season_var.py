@@ -215,10 +215,10 @@ def p1(s,s1,s2,s3,s4):
  height = im1.size[1]
  width = im1.size[0]
  im1 = np.array(im1).astype(np.float) / 255
- 
+ #f.bbox.xmax-width
  plt.style.use('fivethirtyeight')   
  ax =f.subplots()
- ax.figure.figimage(im1, f.bbox.xmax-width, f.bbox.ymax-height)      
+ ax.figure.figimage(im1, 0, f.bbox.ymax-height)      
  FigureCanvas(f)
  db1 = datetime.datetime.strptime(str(s2),"%m")
  m1 = db1.strftime("%b")

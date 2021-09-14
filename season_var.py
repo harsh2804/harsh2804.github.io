@@ -68,7 +68,7 @@ if (document.readyState === "complete") {
 """
 
 
-a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
+a = pd.read_excel('data/subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
 a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)
 
 b = a.set_index(['Column3','Column22']).stack().reset_index()
@@ -208,8 +208,8 @@ def p1(s,s1,s2,s3,s4):
  # = pn.widgets.DataFrame(c)   
  #print(c)
  f = Figure(figsize=(15,8),dpi = 200)
- cw = os.getcwd()
- im1 = Image.open(cw+'/imd_logo.png')
+ #cw = os.getcwd()
+ im1 = Image.open('static/images/imd_logo.png')
  sz = im1.size
  sz1 = (int(sz[0]/2), int(sz[1]/2))
  height = im1.size[1]
@@ -257,7 +257,7 @@ def p1(s,s1,s2,s3,s4):
 def p2(s,s1,s2,s3,s4):
         mm1 = s2  #strptime(st_mon,'%b').tm_mon
         mm2 = s3 #strptime(et_mon,'%b').tm_mon
-        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
+        a = pd.read_excel('data/subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
         a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)
 
         b = a.set_index(['Column3','Column22']).stack().reset_index()

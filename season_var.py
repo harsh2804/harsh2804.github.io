@@ -40,7 +40,7 @@ js = {
     'html5buttons': 'https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js',
 }
     
-pn.extension(sizing_mode = 'stretch_width',css_files=css, js_files=js)
+pn.extension(loading_spinner='dots',sizing_mode = 'stretch_width',css_files=css, js_files=js)
 #template = 'bootstrap'
 
 
@@ -144,7 +144,7 @@ file_download = pn.widgets.FileDownload(file='figure.png', filename='figure.png'
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 def p1(s,s1,s2,s3,s4):
- 
+ pn.param.ParamMethod.loading_indicator = True
  c = b.copy()
  c = c[c.name == s4]
  c = c[c.rain >= 0]
@@ -207,7 +207,7 @@ def p1(s,s1,s2,s3,s4):
  y1 = c['rain'][m1]
  # = pn.widgets.DataFrame(c)   
  #print(c)
- f = Figure(figsize=(10,5),dpi = 200)
+ f = Figure(figsize=(12,6),dpi = 200)
  #cw = os.getcwd()
  im1 = Image.open('static/imd_logo.png')
  sz = im1.size
@@ -224,7 +224,7 @@ def p1(s,s1,s2,s3,s4):
  ax.plot(c.year,c.rain,marker = 'o')
  ax.set_xlabel('year')
  ax.set_ylabel('rain')
- ax.text(x1,y1,'max=' + str(y1) +'-' + str(x1))   
+ ax.text(x1,y1,'max=' + str(y1) +'(' + str(x1) + ')')   
  #c.plot.line('year','rain',ax = ax)
  #extent = ax.get_window_extent().transformed(f.dpi_scale_trans.inverted())
  #plt.savefig('figure.png',format='png',bbox_inches=extent)
@@ -246,7 +246,7 @@ def p1(s,s1,s2,s3,s4):
   
 
 
-    
+ pn.param.ParamMethod.loading_indicator = False   
  return f
 
 

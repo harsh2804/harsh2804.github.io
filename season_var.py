@@ -219,7 +219,7 @@ def p1(s,s1,s2,s3,s4):
  plt.style.use('fivethirtyeight')   
  ax =f.subplots()
  print(height)      
- ax.figure.figimage(im1, 0, f.bbox.ymax-height-600)      
+ ax.figure.figimage(im1, 0, f.bbox.ymax-height-350)      
  FigureCanvas(f)
  db1 = datetime.datetime.strptime(str(s2),"%m")
  m1 = db1.strftime("%b")

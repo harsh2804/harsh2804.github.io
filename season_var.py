@@ -463,9 +463,9 @@ bootstrap.main.append(pn.Column(file_download,pn.Card(p1,width = 100),pn.Row(pn.
 
 #bootstrap.servable(title="Seasonal Variation");
 
-pn.template.FastListTemplate(site = "panel",    title="Seasonal Variation",
+pn.template.FastListTemplate(site = "panel",    title="Seasonal Variation", header='static/imd_logo.png',
                             sidebar = [s4,s,s1,s2,s3,text1],
-                            main = [pn.Column(pn.Card(file_download,p1,sizing_mode = 'stretch_width'),pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table'),p2))]).servable();
+                            main = [pn.Column(pn.Card(file_download,p1,sizing_mode = 'stretch_both'),pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table'),p2))]).servable();
 
 #pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com",address="0.0.0.0")#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)
 

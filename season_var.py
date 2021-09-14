@@ -72,7 +72,7 @@ a = pd.read_excel('data/subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
 a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)
 
 b = a.set_index(['Column3','Column22']).stack().reset_index()
-print(b)
+#print(b)
 b.columns = ['year','name','month','rain']
 b.month = b.month.astype(int)
 
@@ -86,7 +86,7 @@ m5 = list(b['name'].unique())
 
 
 
-print(b.dtypes)
+#print(b.dtypes)
 #m4 = list(b.month.unique())
 
 #bootstrap = pn.template.BootstrapTemplate(title='Seasonal variation')
@@ -233,7 +233,7 @@ def p1(s,s1,s2,s3,s4):
  df_2 = pd.DataFrame({'Values': k3})
  df_2    = df_2.reset_index()
  df_2.columns = ['Statistics','values']
- print(df_2)
+ #print(df_2)
  d.value =  df_2
     
  html = df_2.to_html(classes=['example2', 'panel-df'])
@@ -454,7 +454,7 @@ bootstrap.main.append(pn.Column(file_download,pn.Card(p1,width = 100),pn.Row(pn.
 #k = pn.Row(pn.Column(title,s4,s,s1,s2,s3,d),p1)#.controls(jslink=True),p1)
 #k#.servable()
 
-bootstrap#.servable()
+pn.serve(bootstrap)#.servable()
 
 
 #pn.serve(bootstrap,websocket_origin = "192.168.1.224:2003",address="192.168.1.224",port = 2003)#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)

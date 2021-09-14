@@ -454,10 +454,10 @@ bootstrap.main.append(pn.Column(file_download,pn.Card(p1,width = 100),pn.Row(pn.
 #k = pn.Row(pn.Column(title,s4,s,s1,s2,s3,d),p1)#.controls(jslink=True),p1)
 #k#.servable()
 
-#pn.serve(bootstrap)#.servable()
+bootstrap.servable()
 
 
-pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com:2003",address="0.0.0.0",port = 2003)#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)
+#pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com:2003",address="0.0.0.0",port = 2003)#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)
 
 
 

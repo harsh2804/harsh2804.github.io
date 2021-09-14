@@ -7,20 +7,20 @@ anyio==3.3.0
 appdirs==1.4.4
 argon2-cffi==20.1.0
 async-generator==1.10
-attrs @ file:///home/conda/feedstock_root/build_artifacts/attrs_1620387926260/work
+attrs
 Babel==2.9.1
 backcall==0.2.0
 backoff==1.11.1
-beautifulsoup4 @ file:///home/conda/feedstock_root/build_artifacts/beautifulsoup4_1601745390275/work
+beautifulsoup4
 bleach==4.0.0
 bokeh==2.3.3
 boltons==21.0.0
 bqplot==0.11.0
 brotlipy==0.7.0
-cenpy @ file:///home/conda/feedstock_root/build_artifacts/cenpy_1592576546914/work
+cenpy
 certifi==2021.5.30
-cffi @ file:///C:/ci/cffi_1625831756778/work
-chardet @ file:///C:/ci/chardet_1607706937985/work
+cffi
+chardet
 chart-studio==1.1.0
 click==8.0.1
 click-plugins==1.1.1
@@ -31,8 +31,8 @@ colorcet==2.0.6
 colorlog==6.4.1
 colorlover==0.3.0
 conda==4.10.3
-conda-package-handling @ file:///C:/ci/conda-package-handling_1618262410900/work
-cryptography @ file:///C:/ci/cryptography_1616769504165/work
+conda-package-handling
+cryptography
 cufflinks==0.17.3
 cycler==0.10.0
 dacite==1.6.0
@@ -50,12 +50,12 @@ et-xmlfile==1.1.0
 face==20.1.1
 Fiona==1.8.20
 furl==2.1.2
-fuzzywuzzy @ file:///home/conda/feedstock_root/build_artifacts/fuzzywuzzy_1605704184142/work
+fuzzywuzzy
 GDAL==3.3.1
-geopandas @ file:///home/conda/feedstock_root/build_artifacts/geopandas_1623249625470/work
+geopandas
 glom==20.11.0
 holoviews==1.14.5
-idna @ file:///home/linux1/recipes/ci/idna_1610986105248/work
+idna
 imagesize==1.2.0
 importlib-metadata==4.8.1
 importlib-resources==5.2.2
@@ -65,7 +65,7 @@ ipython-genutils==0.2.0
 ipywidgets==7.6.4
 jedi==0.18.0
 Jinja2==2.11.3
-joblib @ file:///home/conda/feedstock_root/build_artifacts/joblib_1612898609989/work
+joblib
 jsonschema==3.2.0
 jupyter-client==6.1.12
 jupyter-core==4.7.1
@@ -74,13 +74,13 @@ jupyter-sphinx==0.3.2
 jupyterlab-pygments==0.1.2
 jupyterlab-widgets==1.0.1
 kaleido==0.2.1
-kiwisolver @ file:///D:/bld/kiwisolver_1630173900105/work
-libpysal @ file:///home/conda/feedstock_root/build_artifacts/libpysal_1624825815449/work
+kiwisolver 
+libpysal 
 lxml==4.6.3
-mapclassify @ file:///home/conda/feedstock_root/build_artifacts/mapclassify_1627363180059/work
+mapclassify
 Markdown==3.3.4
-MarkupSafe @ file:///D:/bld/markupsafe_1621455953770/work
-matplotlib @ file:///D:/bld/matplotlib-suite_1628881890373/work
+MarkupSafe
+matplotlib
 matplotlib-inline==0.1.2
 menuinst==1.4.16
 micawber==0.5.4
@@ -93,20 +93,20 @@ nbconvert==5.6.1
 nbformat==4.4.0
 nbinteract==0.2.6
 nest-asyncio==1.5.1
-networkx @ file:///home/conda/feedstock_root/build_artifacts/networkx_1627363373051/work
+networkx
 notebook==6.4.0
-numpy @ file:///D:/bld/numpy_1629092210914/work
-olefile @ file:///home/conda/feedstock_root/build_artifacts/olefile_1602866521163/work
+numpy
+olefile
 openpyxl==3.0.7
 orderedmultidict==1.0.1
 packaging==21.0
-pandas @ file:///D:/bld/pandas_1629113945808/work
+pandas
 pandocfilters==1.4.3
 panel==0.12.1
 param==1.11.1
 parso==0.8.2
 pickleshare==0.7.5
-Pillow @ file:///D:/bld/pillow_1625677963956/work
+Pillow
 plotly==5.1.0
 portpicker==1.4.0
 posthog==1.4.2
@@ -115,41 +115,41 @@ prometheus-client==0.11.0
 prompt-toolkit==3.0.19
 pyarrow==5.0.0
 pycosat==0.6.3
-pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+pycparser
 pyct==0.4.8
 pydantic==1.8.2
 pyee==8.2.2
 Pygments==2.9.0
-pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1608057966937/work
+pyOpenSSL
 pyparsing==2.4.7
 pyppeteer==0.2.6
 pyproj==3.1.0
 pyrsistent==0.18.0
 pyshp==2.1.3
-PySocks @ file:///C:/ci/pysocks_1605307512533/work
-python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
-python-Levenshtein @ file:///D:/bld/python-levenshtein_1612200757968/work
-pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1612179539967/work
+PySocks
+python-dateutil
+python-Levenshtein
+pytz 
 pyviz-comms==2.1.0
 pywin32==228
 pywinpty==1.1.3
 PyYAML==5.4.1
 pyzmq==22.2.0
-requests @ file:///tmp/build/80754af9/requests_1608241421344/work
+requests
 requests-toolbelt==0.9.1
 requests-unixsocket==0.2.0
 retrying==1.3.3
-ruamel-yaml-conda @ file:///C:/ci/ruamel_yaml_1616016898638/work
-scikit-learn @ file:///D:/bld/scikit-learn_1628432154130/work
-scipy @ file:///C:/bld/scipy_1628206525580/work
+ruamel-yaml-conda
+scikit-learn
+scipy
 seaborn==0.11.2
 selenium==3.141.0
 Send2Trash==1.7.1
 Shapely==1.7.1
-six @ file:///tmp/build/80754af9/six_1623709665295/work
+six
 sniffio==1.2.0
 snowballstemmer==2.1.0
-soupsieve @ file:///home/conda/feedstock_root/build_artifacts/soupsieve_1597680516047/work
+soupsieve
 Sphinx==4.1.2
 sphinxcontrib-applehelp==1.0.2
 sphinxcontrib-devhelp==1.0.2
@@ -163,14 +163,14 @@ tabulate==0.8.9
 tenacity==8.0.1
 terminado==0.10.1
 testpath==0.5.0
-threadpoolctl @ file:///home/conda/feedstock_root/build_artifacts/threadpoolctl_1626092076920/work
+threadpoolctl
 toolz==0.11.1
-tornado @ file:///D:/bld/tornado_1610094910414/work
-tqdm @ file:///tmp/build/80754af9/tqdm_1625563689033/work
+tornado
+tqdm
 traitlets==4.3.3
 traittypes==0.2.1
 typing-extensions==3.10.0.2
-urllib3 @ file:///tmp/build/80754af9/urllib3_1625084269274/work
+urllib3
 validators==0.18.2
 vega-datasets==0.9.0
 voila==0.2.11
@@ -179,7 +179,7 @@ webencodings==0.5.1
 websocket-client==1.2.1
 websockets==9.1
 widgetsnbextension==3.5.1
-win-inet-pton @ file:///C:/ci/win_inet_pton_1605306162074/work
+win-inet-pton
 wincertstore==0.2
 xarray==0.19.0
 xlrd==2.0.1

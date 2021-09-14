@@ -30,7 +30,6 @@ colorama==0.4.4
 colorcet==2.0.6
 colorlog==6.4.1
 colorlover==0.3.0
-conda==4.10.3
 conda-package-handling
 cryptography
 cufflinks==0.17.3

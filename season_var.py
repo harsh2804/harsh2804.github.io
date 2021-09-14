@@ -140,7 +140,7 @@ table_with_export_buttons = pn.pane.HTML("<h1>hello</h1>",sizing_mode='stretch_w
 
 #file_download_csv = pn.widgets.FileDownload(filename="Statistical.csv", button_type="primary")   
 
-file_download = pn.widgets.FileDownload(file='figure.png', filename='figure.png',button_type='green',label='Download Plot',name='Click to download chart')
+file_download = pn.widgets.FileDownload(file='figure.png', filename='figure.png',button_type='success',label='Download Plot',name='Click to download chart')
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 def p1(s,s1,s2,s3,s4):
@@ -224,8 +224,8 @@ def p1(s,s1,s2,s3,s4):
  ax.plot(c.year,c.rain,marker = 'o')
  ax.set_xlabel('year')
  ax.set_ylabel('rain')
- ax.quiver(x1,y1,1,1,color='red')      
- ax.text(x1,y1,'max=' + str(y1) +'(' + str(x1) + ')')   
+ #ax.quiver(x1,y1,1,1,color='red')      
+ ax.text(x1,y1,'max=' + str(y1) +'(' + str(x1) + ')',color='red')   
  #c.plot.line('year','rain',ax = ax)
  #extent = ax.get_window_extent().transformed(f.dpi_scale_trans.inverted())
  #plt.savefig('figure.png',format='png',bbox_inches=extent)

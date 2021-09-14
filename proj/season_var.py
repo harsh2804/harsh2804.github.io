@@ -208,8 +208,8 @@ def p1(s,s1,s2,s3,s4):
  # = pn.widgets.DataFrame(c)   
  #print(c)
  f = Figure(figsize=(15,8),dpi = 200)
- cw = os.getcwd()
- im1 = Image.open(cw+'/imd_logo.png')
+ #cw = os.getcwd()
+ im1 = Image.open('static/images/imd_logo.png')
  sz = im1.size
  sz1 = (int(sz[0]/2), int(sz[1]/2))
  height = im1.size[1]

@@ -224,6 +224,7 @@ def p1(s,s1,s2,s3,s4):
  ax.plot(c.year,c.rain,marker = 'o')
  ax.set_xlabel('year')
  ax.set_ylabel('rain')
+ ax.quiver(x1,y1,1,1,color='red')      
  ax.text(x1,y1,'max=' + str(y1) +'(' + str(x1) + ')')   
  #c.plot.line('year','rain',ax = ax)
  #extent = ax.get_window_extent().transformed(f.dpi_scale_trans.inverted())

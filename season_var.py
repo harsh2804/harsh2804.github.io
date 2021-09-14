@@ -454,8 +454,11 @@ bootstrap.main.append(pn.Column(file_download,pn.Card(p1,width = 100),pn.Row(pn.
 #k = pn.Row(pn.Column(title,s4,s,s1,s2,s3,d),p1)#.controls(jslink=True),p1)
 #k#.servable()
 
-bootstrap.servable(title="Seasonal Variation")
+#bootstrap.servable(title="Seasonal Variation");
 
+pn.template.FastListTemplate(site = "panel",    title="Seasonal Variation",
+                            sidebar = [s4,s,s1,s2,s3,text1],
+                            main = [pn.Column(file_download,pn.Card(p1,width = 100),pn.Row(pn.Card(table_with_export_buttons),p2))])servable();
 
 #pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com",address="0.0.0.0")#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)
 

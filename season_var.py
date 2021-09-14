@@ -40,8 +40,8 @@ js = {
     'html5buttons': 'https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js',
 }
     
-pn.extension(template = 'bootstrap',sizing_mode = 'stretch_width',css_files=css, js_files=js)
-
+pn.extension(sizing_mode = 'stretch_width',css_files=css, js_files=js)
+#template = 'bootstrap'
 
 
 
@@ -68,7 +68,7 @@ if (document.readyState === "complete") {
 """
 
 
-a = pd.read_excel('data/subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
+a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
 a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)
 
 b = a.set_index(['Column3','Column22']).stack().reset_index()
@@ -257,7 +257,7 @@ def p1(s,s1,s2,s3,s4):
 def p2(s,s1,s2,s3,s4):
         mm1 = s2  #strptime(st_mon,'%b').tm_mon
         mm2 = s3 #strptime(et_mon,'%b').tm_mon
-        a = pd.read_excel('data/subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
+        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
         a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)
 
         b = a.set_index(['Column3','Column22']).stack().reset_index()

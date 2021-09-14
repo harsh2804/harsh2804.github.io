@@ -218,7 +218,8 @@ def p1(s,s1,s2,s3,s4):
  #f.bbox.xmax-width
  plt.style.use('fivethirtyeight')   
  ax =f.subplots()
- ax.figure.figimage(im1, 0, f.bbox.ymax-height)      
+ print(height)      
+ ax.figure.figimage(im1, 0, f.bbox.ymax-height-600)      
  FigureCanvas(f)
  db1 = datetime.datetime.strptime(str(s2),"%m")
  m1 = db1.strftime("%b")

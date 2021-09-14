@@ -228,12 +228,14 @@ def p1(s,s1,s2,s3,s4):
  #c.plot.line('year','rain',ax = ax)
  #extent = ax.get_window_extent().transformed(f.dpi_scale_trans.inverted())
  #plt.savefig('figure.png',format='png',bbox_inches=extent)
- ax.figure.savefig('figure.png')  
+ ax.figure.savefig('figure.png')
+ l1 = ['mean','50%','std','max']
  k3 = c["rain"].describe()
  df_2 = pd.DataFrame({'Values': k3})
  df_2    = df_2.reset_index()
  df_2.columns = ['Statistics','values']
- #print(df_2)
+ df_2 = df_2[df_2['Statistics'].isin(l1)]      
+ print(df_2)
  d.value =  df_2
     
  html = df_2.to_html(classes=['example2', 'panel-df'])

@@ -229,7 +229,7 @@ def p1(s,s1,s2,s3,s4):
  #extent = ax.get_window_extent().transformed(f.dpi_scale_trans.inverted())
  #plt.savefig('figure.png',format='png',bbox_inches=extent)
  ax.figure.savefig('figure.png')
- ax.set_xlim(c.year.min(),c.year.max()+4)
+ ax.set_xlim(c.year.min()-1,c.year.max()+2)
  l1 = ['mean','50%','std','max']
  k3 = c["rain"].describe()
  df_2 = pd.DataFrame({'Values': k3})

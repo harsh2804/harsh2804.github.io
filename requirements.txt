@@ -1,10 +1,7 @@
-PIL 
-matplotlib
-plotly
-os
-pandas
-bokeh
-panel
-numpy
-datetime
-io
+matplotlib==3.4.3
+bokeh==2.3.3
+numpy==1.21.2
+plotly==5.1.0
+pandas==1.3.2
+panel==0.12.1
+Pillow==8.3.2

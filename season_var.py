@@ -239,7 +239,7 @@ def p1(s,s1,s2,s3,s4):
  m1 = db1.strftime("%b")
  db2 = datetime.datetime.strptime(str(s3),"%m")
  m2 = db2.strftime("%b")                                 
- f.suptitle('Seasonal variation of '+ s4 + ' from ' + m1+ ' ' + str(s) + ' to ' + m2 + str(s1) , fontsize=20)
+ f.suptitle('Seasonal variation of '+ s4 + ' from ' + m1+ ' ' + str(s) + ' to ' + m2 + ' ' + str(s1) , fontsize=20)
  ax.plot(c.year,c.rain,marker = 'o')
  ax.set_xlabel('year')
  ax.set_ylabel('rain(mm)')

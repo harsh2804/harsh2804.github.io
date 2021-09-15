@@ -282,7 +282,9 @@ def p1(s,s1,s2,s3,s4):
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 def p2(s,s1,s2,s3,s4):
         if(s > s1):
-           return          
+           return
+        elif((s == s1) &  (s2 > s3)):
+           return
         mm1 = s2  #strptime(st_mon,'%b').tm_mon
         mm2 = s3 #strptime(et_mon,'%b').tm_mon
         a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')

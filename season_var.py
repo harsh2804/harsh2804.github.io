@@ -149,8 +149,9 @@ def p1(s,s1,s2,s3,s4):
  al.object='welcome to seasonal plot'
  al.alert_type = 'info'
  if(s > s1):
-    al.object='## Alert\nEnd Year is smaller tan Start Year!'
+    al.object='## Alert\nEnd Year is smaller than Start Year!'
     al.alert_type = 'warning'
+    return al   
  pn.param.ParamMethod.loading_indicator = True
  c = b.copy()
  c = c[c.name == s4]

@@ -142,9 +142,11 @@ table_with_export_buttons = pn.pane.HTML("<h1>hello</h1>",sizing_mode='stretch_w
 
 file_download = pn.widgets.FileDownload(file='figure.png',button_type='success',label='Download',name='Click to download chart')
 
+al = pn.pane.Alert("Hello",alert_type='success')  
+
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 def p1(s,s1,s2,s3,s4):
- pn.pane.Alert("Hello",alert_type='success')      
+ al.object='welcome to seasonal plot'    
  pn.param.ParamMethod.loading_indicator = True
  c = b.copy()
  c = c[c.name == s4]
@@ -472,7 +474,7 @@ bootstrap.main.append(pn.Column(file_download,pn.Card(p1,width = 100),pn.Row(pn.
 
 #https://panel.holoviz.org/_static/logo_horizontal.png
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
-                            sidebar = [s4,s,s1,s2,s3,text1],
+                            sidebar = [al,s4,s,s1,s2,s3,text1],
                             main = [pn.Card(pn.Column(pn.Card(file_download,p1,sizing_mode = 'stretch_both',title='Seasonal Variation'),pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table'),p2)))]).servable();
 
 #pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com",address="0.0.0.0")#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)

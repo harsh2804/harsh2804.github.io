@@ -144,7 +144,7 @@ file_download = pn.widgets.FileDownload(file='figure.png',button_type='success',
 
 al = pn.pane.Alert("Hello")  
 
-ld = pn.indicators.LoadingSpinner(width=100,height=100)
+ld = pn.indicators.LoadingSpinner(width=100,height=100,color='primary',bgcolor='dark')
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 def p1(s,s1,s2,s3,s4):
@@ -161,7 +161,7 @@ def p1(s,s1,s2,s3,s4):
     table_with_export_buttons.object = ""   
     return al
  #pn.param.ParamMethod.loading_indicator = True
- ld.value=True      
+ #ld.value=True      
  c = b.copy()
  c = c[c.name == s4]
  c = c[c.rain >= 0]
@@ -276,7 +276,7 @@ def p1(s,s1,s2,s3,s4):
 
 
  #pn.param.ParamMethod.loading_indicator = False
- ld.value=False         
+ #ld.value=False         
  return f
 
 
@@ -493,8 +493,8 @@ bootstrap.main.append(pn.Column(file_download,pn.Card(p1,width = 100),pn.Row(pn.
 
 #https://panel.holoviz.org/_static/logo_horizontal.png
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
-                            sidebar = [ld,al,s4,s,s1,s2,s3,text1],
-                            main = [pn.Card(pn.Column(pn.Card(file_download,p1,sizing_mode = 'stretch_both',title='Seasonal Variation'),pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',background='WhiteSmoke'),
+                            sidebar = [al,s4,s,s1,s2,s3,text1],
+                            main = [pn.Card(pn.Column(pn.Card(file_download,pn.panel(p1,loading_indicator=True),sizing_mode = 'stretch_both',title='Seasonal Variation'),pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',background='WhiteSmoke'),
                                                                                                                                          pn.Card(p2,title='Visualization')  )))]).servable();
 
 #pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com",address="0.0.0.0")#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)

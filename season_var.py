@@ -144,6 +144,7 @@ file_download = pn.widgets.FileDownload(file='figure.png',button_type='success',
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 def p1(s,s1,s2,s3,s4):
+ pn.pane.Alert("Hello",alert_type='success')      
  pn.param.ParamMethod.loading_indicator = True
  c = b.copy()
  c = c[c.name == s4]

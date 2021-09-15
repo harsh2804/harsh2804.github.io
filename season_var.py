@@ -230,7 +230,7 @@ def p1(s,s1,s2,s3,s4):
  ax.set_xlabel('year')
  ax.set_ylabel('rain')
  #ax.quiver(x1,y1,1,1,color='red')      
- ax.text(x1,y1,'max=' + str(y1) +'(' + str(x1) + ')',color='red',ha='left',va='top')   
+ ax.text(x1,y1,'max=' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')   
  #c.plot.line('year','rain',ax = ax)
  #extent = ax.get_window_extent().transformed(f.dpi_scale_trans.inverted())
  #plt.savefig('figure.png',format='png',bbox_inches=extent)

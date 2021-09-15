@@ -142,11 +142,15 @@ table_with_export_buttons = pn.pane.HTML("<h1>hello</h1>",sizing_mode='stretch_w
 
 file_download = pn.widgets.FileDownload(file='figure.png',button_type='success',label='Download',name='Click to download chart')
 
-al = pn.pane.Alert("Hello",alert_type='success')  
+al = pn.pane.Alert("Hello")  
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 def p1(s,s1,s2,s3,s4):
- al.object='welcome to seasonal plot'    
+ al.object='welcome to seasonal plot'
+ al.alert_type = 'info'
+ if(s > s1):
+    al.object='## Alert\nEnd Year is smaller tan Start Year!'
+    al.alert_type = 'warning'
  pn.param.ParamMethod.loading_indicator = True
  c = b.copy()
  c = c[c.name == s4]

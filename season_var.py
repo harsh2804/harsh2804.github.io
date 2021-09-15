@@ -490,7 +490,7 @@ bootstrap.main.append(pn.Column(file_download,pn.Card(p1,width = 100),pn.Row(pn.
 #https://panel.holoviz.org/_static/logo_horizontal.png
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
                             sidebar = [al,s4,s,s1,s2,s3,text1],
-                            main = [pn.Card(pn.Column(pn.Card(file_download,p1,sizing_mode = 'stretch_both',title='Seasonal Variation'),pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table'),
+                            main = [pn.Card(pn.Column(pn.Card(file_download,p1,sizing_mode = 'stretch_both',title='Seasonal Variation'),pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',background='WhiteSmoke'),
                                                                                                                                          pn.Card(p2,title='Visualization')  )))]).servable();
 
 #pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com",address="0.0.0.0")#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)

@@ -107,7 +107,7 @@ m3 = list(range(m1,m2+1))
 m4 = list(k1.month.unique())
 s = pn.widgets.Select(name = 'start year',options =m3,width = 100)
 s1 = pn.widgets.Select(name = 'end year',options =m3,width=100)
-s2 = pn.widgets.Select(name = 'star month',options =m4,width = 100)
+s2 = pn.widgets.Select(name = 'start month',options =m4,width = 100)
 s3 = pn.widgets.Select(name = 'end month',options =m4,width = 100)
 
 #s.jslink(s4,value='value')
@@ -149,12 +149,12 @@ def p1(s,s1,s2,s3,s4):
  al.object='welcome to seasonal plot'
  al.alert_type = 'info'
  if(s > s1):
-    al.object='## Alert\nEnd Year is smaller than Start Year!'
+    al.object='## Alert\nEnd Year is smaller than Start Year !'
     al.alert_type = 'warning'
     table_with_export_buttons.object = ""   
     return al
  elif((s == s1) &  (s2 > s3)):
-    al.object='## Alert\nEnd Month is smaller than Start Year!'
+    al.object='## Alert\nEnd Month is smaller than Start Month !'
     al.alert_type = 'warning'
     table_with_export_buttons.object = ""   
     return al
@@ -239,10 +239,10 @@ def p1(s,s1,s2,s3,s4):
  m1 = db1.strftime("%b")
  db2 = datetime.datetime.strptime(str(s3),"%m")
  m2 = db2.strftime("%b")                                 
- f.suptitle('seasonal variation of '+ s4 + ' from ' + m1+ ' ' + str(s) + ' to ' + m2 + str(s1) , fontsize=20)
+ f.suptitle('Seasonal variation of '+ s4 + ' from ' + m1+ ' ' + str(s) + ' to ' + m2 + str(s1) , fontsize=20)
  ax.plot(c.year,c.rain,marker = 'o')
  ax.set_xlabel('year')
- ax.set_ylabel('rain')
+ ax.set_ylabel('rain(mm)')
  #ax.quiver(x1,y1,1,1,color='red')      
  ax.text(x1,y1,'max=' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')   
  #c.plot.line('year','rain',ax = ax)
@@ -254,8 +254,8 @@ def p1(s,s1,s2,s3,s4):
  k3 = c["rain"].describe()
  df_2 = pd.DataFrame({'Values': k3})
  df_2    = df_2.reset_index()
- df_2.columns = ['Statistics','values']
- df_2['values'] = df_2['values'].round(2)     
+ df_2.columns = ['Statistics','values(mm)']
+ df_2['values(mm)'] = df_2['values(mm)'].round(2)     
  df_2 = df_2[df_2['Statistics'].isin(l1)]
  df_2['Statistics'] = df_2['Statistics'].replace({'50%':'Median','mean':'Mean','std':'Standard Deviation','max':'Maximum'})
  df_2.set_index('Statistics',inplace=True)

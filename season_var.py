@@ -152,7 +152,12 @@ def p1(s,s1,s2,s3,s4):
     al.object='## Alert\nEnd Year is smaller than Start Year!'
     al.alert_type = 'warning'
     table_with_export_buttons.object = ""   
-    return al   
+    return al
+ elif((s == s1) &  (s2 > s3)):
+    al.object='## Alert\nEnd Month is smaller than Start Year!'
+    al.alert_type = 'warning'
+    table_with_export_buttons.object = ""   
+    return al
  pn.param.ParamMethod.loading_indicator = True
  c = b.copy()
  c = c[c.name == s4]

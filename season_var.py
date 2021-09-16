@@ -495,13 +495,23 @@ gif_pane = pn.pane.GIF('coil.gif')
 box = pn.WidgetBox('# Select Box', al, s4,s,s1,s2,s3,text1)
 
 
+a6 = pn.Column(file_download,pn.Card(pn.panel(p1,loading_indicator=True),title='Visualization',sizing_mode = 'stretch_width'),gif_pane)
+b6 = pn.Column(pn.Card(table_with_export_buttons,title='Statistical Table',collapsible =False,background='WhiteSmoke',header_background='success'), pn.Card(p2,title='Highest 5 ever recorded rain'))
+c6 = pn.Row(a6,b6)                                                                                                                                        
 
-#https://panel.holoviz.org/_static/logo_horizontal.png
+
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
-                            sidebar = [al,s4,s,s1,s2,s3,text1],
-                            main = [pn.Card(pn.Column(file_download,pn.Card(pn.panel(p1,loading_indicator=True),title='Visualization',sizing_mode = 'stretch_width'
-),gif_pane,pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsible =False,background='WhiteSmoke',header_background='success'),
-                                                                                                                                         pn.Card(p2,title='Highest 5 ever recorded rain')  )))]).servable();
+                            sidebar = [al,s4,s,s1,s2,s3,text1],  
+                            main =[c6]).servable();
+
+
+
+
+#pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
+#                            sidebar = [al,s4,s,s1,s2,s3,text1],  
+#                            main = [pn.Card(pn.Column(file_download,pn.Card(pn.panel(p1,loading_indicator=True),title='Visualization',sizing_mode = 'stretch_width'
+#),gif_pane,pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsible =False,background='WhiteSmoke',header_background='success'),
+#                                                                                                                                         pn.Card(p2,title='Highest 5 ever recorded rain')  )))]).servable();
 
 #pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com",address="0.0.0.0")#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)
 #sizing_mode = 'stretch_both'
@@ -511,3 +521,4 @@ pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),  
 
 #ppn.pane.panel(k)
 #p.save('test.html',embed=True,resources=INLINE)#,embed_json=False)
+#https://panel.holoviz.org/_static/logo_horizontal.png

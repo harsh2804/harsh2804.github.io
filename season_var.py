@@ -491,7 +491,7 @@ bootstrap.main.append(pn.Column(file_download,pn.Card(p1,width = 100),pn.Row(pn.
 #bootstrap.servable(title="Seasonal Variation");
 
 
-
+gif_pane = pn.pane.GIF('coil.gif')
 box = pn.WidgetBox('# Select Box', al, s4,s,s1,s2,s3,text1)
 
 
@@ -500,7 +500,7 @@ box = pn.WidgetBox('# Select Box', al, s4,s,s1,s2,s3,text1)
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
                             sidebar = [al,s4,s,s1,s2,s3,text1],
                             main = [pn.Card(pn.Column(file_download,pn.Card(pn.panel(p1,loading_indicator=True),title='Visualization',sizing_mode = 'stretch_width'
-),pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsible =False,background='WhiteSmoke',header_background='success'),
+),pn.Row(gif_pane,pn.Card(table_with_export_buttons,title='Statistical Table',collapsible =False,background='WhiteSmoke',header_background='success'),
                                                                                                                                          pn.Card(p2,title='Highest 5 ever recorded rain')  )))]).servable();
 
 #pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com",address="0.0.0.0")#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)

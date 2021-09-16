@@ -500,8 +500,8 @@ a6 = pn.Row(d6,pn.Card(gif_pane,title='Gowing Visualization of seasonal variatio
 b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsible =False,background='WhiteSmoke',header_background='success'), pn.Card(p2,title='Highest 5 ever recorded rain'))
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 
-
-box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),gif_pane,table_with_export_buttons,p2])
+kks = pn.Card(pn.Column(table_with_export_buttons,p2))
+box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),gif_pane,kks])
 column_box = box1.clone(flex_direction='column')
 
 gsp = pn.GridSpec(sizing_mode='stretch_both')

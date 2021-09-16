@@ -445,9 +445,33 @@ def p2(s,s1,s2,s3,s4):
 
 
 
+@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
+def p3(s,s1,s2,s3,s4):
 
+       a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
 
+       a = a[['Column3','Column22','Column18','Column19','Column20','Column21']]
+       a.columns = ['year','name','JS','JJAS','MM','OND']
 
+       #a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)
+
+       b = a.set_index(['year','name']).stack().reset_index()
+       #print(b)
+       b.columns = ['year','name','seasons','rainfall(mm)']
+       b = b[b.name == s4]
+       b = b.replace(-99.9,0)
+       #b.month = b.month.astype(int)
+       #b['color'] = np.where(b.seasons =='JS','red',np.where(b.seasons =='JJAS','blue',np.where(b.seasons =='MM','green','white')))
+       f = px.bar(b,x='year',y='rainfall(mm)',color='seasons',color_discrete_sequence=['red','blue','green','violet'])#,barmode='group')
+
+       f.update_layout(title='<b>Season</b>',title_x=0.5)
+       f.update_layout(modebar_remove=['toImageButtonOptions','zoom', 'pan','select', 'zoomIn', 'zoomOut','lasso2d','sendDataToCloud','toImage'])
+       f.update_yaxes(showgrid= False,visible= False)#range=[min(df3[un])-2,max(df3[un])+2])
+       f.update_xaxes(showgrid= False)#range=[min(df3[un])-2,max(df3[un])+2])
+        
+       plotly_pane1 = pn.pane.Plotly(f) 
+       
+       return plotly_pane1
 
 
 
@@ -501,7 +525,7 @@ b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsi
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 
 kks = pn.Column(table_with_export_buttons,p2)
-box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),gif_pane,kks])
+box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),p3,kks])
 column_box = box1.clone(flex_direction='column')
 
 gsp = pn.GridSpec(sizing_mode='stretch_both')

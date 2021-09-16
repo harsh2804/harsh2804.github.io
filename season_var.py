@@ -451,7 +451,7 @@ def p3(s,s1,s2,s3,s4):
        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
 
        a = a[['Column3','Column22','Column18','Column19','Column20','Column21']]
-       a.columns = ['year','name','JS','JJAS','MM','OND']
+       a.columns = ['year','name','JF','MAM','JJAS','OND']
 
        #a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)
 

@@ -499,7 +499,7 @@ box = pn.WidgetBox('# Select Box', al, s4,s,s1,s2,s3,text1)
 #https://panel.holoviz.org/_static/logo_horizontal.png
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
                             sidebar = [al,s4,s,s1,s2,s3,text1],
-                            main = [pn.Card(pn.Column(file_download,pn.Card(pn.panel(p1,loading_indicator=True),title='Visualization'),pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',background='WhiteSmoke'),
+                            main = [pn.Card(pn.Column(file_download,pn.Card(pn.panel(p1,loading_indicator=True),title='Visualization'),pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsible =False,background='WhiteSmoke'),
                                                                                                                                          pn.Card(p2,title='Highest 5 ever recorded rain')  )))]).servable();
 
 #pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com",address="0.0.0.0")#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)

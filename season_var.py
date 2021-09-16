@@ -654,7 +654,7 @@ bootstrap.main.append(pn.Column(file_download,pn.Card(p1,width = 100),pn.Row(pn.
 
 #bootstrap.servable(title="Seasonal Variation");
 
-strr = p3(s,s1,s2,s3,s4)
+#strr = p3(s,s1,s2,s3,s4)
 #gif_pane = pn.pane.GIF(strr)
 box = pn.WidgetBox('# Select Box', al, s4,s,s1,s2,s3,text1)
 

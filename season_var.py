@@ -505,10 +505,10 @@ box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True))
 column_box = box1.clone(flex_direction='column')
 
 gsp = pn.GridSpec(sizing_mode='stretch_both')
-gsp[0,0:1] = pn.Spacer(pn.Column(file_download,pn.panel(p1,loading_indicator=True)))
-gsp[0,2:3] =  pn.Spacer(gif_pane)
-gsp[1,0:1] = pn.Spacer(table_with_export_buttons)
-gsp[1,2:3] = pn.Spacer(table_with_export_buttons)
+gsp[0,0:1] = pn.Column(file_download,pn.panel(p1,loading_indicator=True))
+gsp[0,2:3] =  gif_pane
+gsp[1,0:1] = table_with_export_buttons
+gsp[1,2:3] = p2
 
 
 

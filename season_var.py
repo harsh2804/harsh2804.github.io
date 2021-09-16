@@ -224,7 +224,7 @@ def p1(s,s1,s2,s3,s4):
  y1 = round(c['rain'][m1],2)
  # = pn.widgets.DataFrame(c)   
  #print(c)
- f = Figure(figsize=(9,9),dpi = 200)
+ f = Figure(figsize=(10,9),dpi = 200)
  #cw = os.getcwd()
  im1 = Image.open('static/imd_logo.png')
  sz = im1.size
@@ -243,7 +243,7 @@ def p1(s,s1,s2,s3,s4):
  db2 = datetime.datetime.strptime(str(s3),"%m")
  m2 = db2.strftime("%b") 
  #Title: Seasonal variation (Jan-Mar) of rainfall over Bihar for the period 1901-2020
- f.suptitle('Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + ' for the period ' + str(s) + '-'  + str(s1) , fontsize=20)
+ f.suptitle('Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '\n for the period ' + str(s) + '-'  + str(s1) , fontsize=20)
  ax.plot(c.year,c.rain,marker = 'o')
  ax.set_xlabel('year')
  ax.set_ylabel('rain(mm)')

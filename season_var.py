@@ -462,9 +462,9 @@ def p3(s,s1,s2,s3,s4):
        b = b.replace(-99.9,0)
        #b.month = b.month.astype(int)
        #b['color'] = np.where(b.seasons =='JS','red',np.where(b.seasons =='JJAS','blue',np.where(b.seasons =='MM','green','white')))
-       f = px.bar(b,x='year',y='rainfall(mm)',color='seasons',color_discrete_sequence=['red','blue','green','violet'])#,barmode='group')
+       f = px.bar(b,x='year',y='rainfall(mm)',color='seasons',color_discrete_sequence=['red','blue','green','goldenrod'])#,barmode='group')
 
-       f.update_layout(title='<b>Season</b>',title_x=0.5)
+       f.update_layout(title='<b>Seasons('+s4+ '</b>',title_x=0.5)
        f.update_layout(modebar_remove=['toImageButtonOptions','zoom', 'pan','select', 'zoomIn', 'zoomOut','lasso2d','sendDataToCloud','toImage'])
        f.update_yaxes(showgrid= False,visible= False)#range=[min(df3[un])-2,max(df3[un])+2])
        f.update_xaxes(showgrid= False)#range=[min(df3[un])-2,max(df3[un])+2])

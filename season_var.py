@@ -436,12 +436,175 @@ def p2(s,s1,s2,s3,s4):
         f.update_yaxes(showgrid= False,visible= False)#range=[min(df3[un])-2,max(df3[un])+2])
         f.update_xaxes(showgrid= False)#range=[min(df3[un])-2,max(df3[un])+2])
         
-        plotly_pane = pn.pane.Plotly(f)
+        plotly_pane = pn.pane.Plotly(f) 
+       
         return plotly_pane
 
      
 
 
+@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
+def p3(s,s1,s2,s3,s4):
+        if(s > s1):
+           return
+        elif((s == s1) &  (s2 > s3)):
+           return
+        mm1 = s2  #strptime(st_mon,'%b').tm_mon
+        mm2 = s3 #strptime(et_mon,'%b').tm_mon
+        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
+        a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)
+
+        b = a.set_index(['Column3','Column22']).stack().reset_index()
+       # print(b)
+        b.columns = ['year','name','month','rain']
+        b.month = b.month.astype(int)
+        df2 = b.copy()
+        df2 = df2[df2.name == s4]
+        df2 = df2[df2.rain >= 0]
+        pm = 'rain'
+        un = 'rain'
+
+  
+        l1 = pd.to_datetime(str(s) + '-' + str(s2) + '-01')   
+        l2 = pd.to_datetime(str(s1) + '-' + str(s3) + '-01')
+
+  
+        #df2['dates'] = pd.to_datetime(df2.year.astype(str) + '-' + df2.month.astype(str) + '-01')
+        
+        
+        #df2 = data.copy() #df.copy()
+        #df2 = df2.replace(-99.9,0)
+        #df2 = df2[df2['Monthly_rain'] >= 0]
+        df2['dates'] = pd.to_datetime(df2.year.astype(str) +'-'+ df2.month.astype(str))
+        
+        #a = pd.to_datetime(str(int(startdate)) + '-' +str(int(mm1))+'-01')
+        #b = pd.to_datetime(str(int(enddate)) + '-'+ str(int(mm2)) + '-01')
+        #cur_date = a.month
+        #end =b.month
+        
+        
+ 
+        
+        #df2['season'] = pd.Series('1',df2.index)
+        #for i in range(start_month,end_month,1):
+        
+        diff =  mm2 - mm1
+        r = [1]
+        
+        df2 = df2.reset_index()
+        
+        
+        if(diff == 0):
+          #df = df[(df.year >= int(startdate)) & (df.year <= int(enddate))] 
+          df2 = df2[df2.month ==  mm2]
+          df2 = df2.dropna()
+          df2 = df2.reset_index()
+          df2.set_index('dates', inplace=True)
+          df2 = df2[pm]
+           
+        elif(diff > 0):
+           #df = df[(df.year >= int(startdate)) & (df.year <= int(enddate))] 
+           df2 = df2[(df2.month >= mm1) & (df2.month <= mm2)]
+           df2 = df2.set_index('dates').resample('Ys').sum()
+           df2 = df2.reset_index()
+           df2['year'] = df2.dates.dt.year
+           df2.set_index('dates', inplace=True)
+           df2 = df2[pm]
+           
+         #r = list(range(int(start_month),int(end_month)))
+        elif(diff < 0):
+           st1 = df2.year.max()
+           st2 = df2.year.min()
+           st3 = df2.month.max()
+           st4 = df2.month.min()
+           a = pd.to_datetime(str(int(st2)) + '-' +str(int(mm1))+'-01')
+           b = pd.to_datetime(str(int(st1)) + '-'+ str(int(mm2)) + '-01')
+           
+           df2 = df2[(df2.dates >= a) & (df2.dates <= b)]
+          
+           
+           #print(df2)
+           df2 = df2.reset_index()
+           #gg = []
+           #sum = 0
+           #df['sum1'] = pd.Series(0.0,df.index)
+           #df['sum2'] = pd.Series('gg',df.index)
+           
+           t1 =  int(mm1)
+           t2 =  int(mm2)+ 12
+           r = list(range(t1,t2+1))
+           r = [x%12 if x != 12 else x for x in r]
+           r.sort()
+           #df2['season'] = pd.Series(0,df2.index)
+           df2 = df2[df2.month.isin(r)]
+           
+           n = len(r)   
+           ls = [df2[i:i+n] for i in range(0,df2.shape[0],n)]
+          
+           for y in  ls:
+            y['s'] = pd.Series(y['year'].iloc[0],index = y.index)
+           df2 = pd.concat(ls,axis = 0)
+          
+           #df2 = df2.set_index('dates')#.resample('Y').sum()
+           
+           df2 = df2.groupby(['s'])['Monthly_rain'].agg('sum') #.sum()
+          
+           df2= df2.reset_index()
+           df2.year = df2['s']
+           df2['dates'] = pd.to_datetime(df2.year.astype(str) +'-'+ '01')
+           df2.set_index('dates', inplace=True)
+           df2 = df2[pm]
+
+        import matplotlib.animation as animation       
+        import seaborn as sns
+        sns.set_style("darkgrid")
+
+        a1 = df2.year.min()
+        a2 = df2.year.max()
+        a3= df2.rain.min()
+        a4  = df2.rain.max()
+
+
+        print(a1,a2,a3,a4)
+
+        fig = plt.figure(figsize=(10, 9), dpi=80) 
+
+        ax = fig.add_subplot(111)
+        ax.set_xlim(a1,a2)
+        ax.set_ylim(a3,a4)
+       #ax = plt.axes(xlim=(a1, a2), ylim=(a3, a4)) 
+        line, = ax.plot([], [], lw=2) 
+
+        def init(): 
+              # creating an empty plot/frame 
+              line.set_data([], []) 
+              return line, 
+
+       # lists to store x and y axis points 
+        xdata, ydata = [], [] 
+
+       # animation function 
+        def animate(i): 
+              # t is a parameter 
+              t = 0.1*i 
+
+              # x, y values to be plotted 
+              x = df2['year'].iloc[i] #    t*np.sin(t) 
+              y = df2['rain'].iloc[i] 
+
+              # appending new points to x, y axes points list 
+              xdata.append(x) 
+              ydata.append(y) 
+              line.set_data(xdata, ydata)
+              ax.set_xlabel('year')
+              ax.set_ylabel('rainfall(mm)')    
+              return line, 
+	 anim = animation.FuncAnimation(fig, animate, init_func=init, 
+							frames=1400, interval=20, blit=True) 
+
+
+        anim.save('coil.gif',writer='imagemagick')
+         
 
 
 

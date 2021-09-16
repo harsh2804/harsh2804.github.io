@@ -501,10 +501,13 @@ b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsi
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 
 
+box1 = pn.FlexBox(*[file_download,pn.panel(p1,loading_indicator=True),gif_pane,table_with_export_buttons,p2])
+
+
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
                             sidebar = [al,s4,s,s1,s2,s3,text1],  
                             main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.",
-                                   c6]).servable();
+                                   box1]).servable();
 
 
 

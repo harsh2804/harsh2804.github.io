@@ -500,7 +500,7 @@ a6 = pn.Row(d6,pn.Card(gif_pane,title='Gowing Visualization of seasonal variatio
 b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsible =False,background='WhiteSmoke',header_background='success'), pn.Card(p2,title='Highest 5 ever recorded rain'))
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 
-kks = pn.Card(pn.Column(table_with_export_buttons,p2))
+kks = pn.Column(table_with_export_buttons,p2)
 box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),gif_pane,kks])
 column_box = box1.clone(flex_direction='column')
 
@@ -515,7 +515,7 @@ gsp[1,2:3] = p2
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
                             sidebar = [al,s4,s,s1,s2,s3,text1],  
                             main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.",
-                                   box1]).servable();
+                                   column_box]).servable();
 
 
 

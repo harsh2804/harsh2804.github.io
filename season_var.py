@@ -599,9 +599,7 @@ def p3(s,s1,s2,s3,s4):
               ax.set_xlabel('year')
               ax.set_ylabel('rainfall(mm)')    
               return line, 
-	anim = animation.FuncAnimation(fig, animate, init_func=init, frames=1400, interval=20, blit=True) 
-
-
+        anim = animation.FuncAnimation(fig, animate, init_func=init, frames=1400, interval=20, blit=True) 
         anim.save('coil.gif',writer='imagemagick')
          
 

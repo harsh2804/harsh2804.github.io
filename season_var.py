@@ -504,11 +504,18 @@ c6 = pn.Column(a6,b6,sizing_mode='stretch_both')
 box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),gif_pane,table_with_export_buttons,p2])
 column_box = box1.clone(flex_direction='column')
 
+gsp = pn.GridSpec(sizing_mode='stretch_both')
+gsp[0,0:1] = pn.Spacer(pn.Column(file_download,pn.panel(p1,loading_indicator=True)))
+gsp[0,2:3] =  pn.Spacer(gif_pane)
+gsp[1,0:1] = pn.Spacer(table_with_export_buttons)
+gsp[1,2:3] = pn.Spacer(table_with_export_buttons)
+
+
 
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
                             sidebar = [al,s4,s,s1,s2,s3,text1],  
                             main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.",
-                                   column_box]).servable();
+                                   gsp]).servable();
 
 
 

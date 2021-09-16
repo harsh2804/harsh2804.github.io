@@ -495,7 +495,7 @@ gif_pane = pn.pane.GIF('coil.gif')
 box = pn.WidgetBox('# Select Box', al, s4,s,s1,s2,s3,text1)
 
 d6 = pn.Column(pn.Card(file_download,pn.panel(p1,loading_indicator=True),title='Visualization',sizing_mode = 'stretch_width'))
-a6 = pn.Row(d6,pn.card(gif_pane,title='Gowing Visualization of seasonal variation of rainfall'))
+a6 = pn.Row(d6,pn.Card(gif_pane,title='Gowing Visualization of seasonal variation of rainfall'))
 b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsible =False,background='WhiteSmoke',header_background='success'), pn.Card(p2,title='Highest 5 ever recorded rain'))
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 

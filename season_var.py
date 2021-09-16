@@ -501,7 +501,7 @@ b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsi
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 
 
-box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),gif_pane,table_with_export_buttons,p2])
+box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),gif_pane,table_with_export_buttons,p2],flex_direction='column')
 
 
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 

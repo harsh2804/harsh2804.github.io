@@ -464,7 +464,7 @@ def p3(s,s1,s2,s3,s4):
        #b['color'] = np.where(b.seasons =='JS','red',np.where(b.seasons =='JJAS','blue',np.where(b.seasons =='MM','green','white')))
        f = px.bar(b,x='year',y='rainfall(mm)',color='seasons',color_discrete_sequence=['red','blue','green','goldenrod'])#,barmode='group')
 
-       f.update_layout(title='<b>Seasons('+s4+ '</b>',title_x=0.5)
+       f.update_layout(title='<b>Seasons('+s4+ ')</b>',title_x=0.5)
        f.update_layout(modebar_remove=['toImageButtonOptions','zoom', 'pan','select', 'zoomIn', 'zoomOut','lasso2d','sendDataToCloud','toImage'])
        f.update_yaxes(showgrid= False,visible= False)#range=[min(df3[un])-2,max(df3[un])+2])
        f.update_xaxes(showgrid= False)#range=[min(df3[un])-2,max(df3[un])+2])
@@ -525,7 +525,7 @@ b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsi
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 
 kks = pn.Column(table_with_export_buttons,p2)
-box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),p3,kks])
+box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),p3,table_with_export_buttons,p2])
 column_box = box1.clone(flex_direction='column')
 
 gsp = pn.GridSpec(sizing_mode='stretch_both')
@@ -539,7 +539,7 @@ gsp[1,2:3] = p2
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
                             sidebar = [al,s4,s,s1,s2,s3,text1],  
                             main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.",
-                                   column_box]).servable();
+                                   box1]).servable();
 
 
 

@@ -224,7 +224,7 @@ def p1(s,s1,s2,s3,s4):
  y1 = round(c['rain'][m1],2)
  # = pn.widgets.DataFrame(c)   
  #print(c)
- f = Figure(figsize=(10,9),dpi = 200)
+ f = Figure(figsize=(5,9),dpi = 200)
  #cw = os.getcwd()
  im1 = Image.open('static/imd_logo.png')
  sz = im1.size

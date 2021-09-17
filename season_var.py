@@ -472,17 +472,8 @@ def p3(s,s1,s2,s3,s4):
         
        plotly_pane1 = pn.pane.Plotly(f) 
        
-       s1 = b['rainfall(mm)'].min()
-       s2 = b['rainfall(mm)'].max() + 10
-
-
-       f1=px.bar(b, x='seasons',y = 'rainfall(mm)', hover_name = "year", color='seasons',
-            animation_frame= 'year', barmode='group',range_y=[s1,s2])
-       plotly_pane2 = pn.pane.Plotly(f1) 
-       #f.write_html('season_anime.html',include_plotlyjs='cdn')
        
-       
-       return plotly_pane1,plotly_pane2
+       return plotly_pane1
 
 
 
@@ -515,9 +506,9 @@ def p4(s,s1,s2,s3,s4):
        s2 = b['rainfall(mm)'].max() + 10
        f1=px.bar(b, x='seasons',y = 'rainfall(mm)', hover_name = "year", color='seasons',
             animation_frame= 'year', barmode='group',range_y=[s1,s2])
-       f.update_layout(title='<b>Seasons('+s4+ ')</b>',title_x=0.5)
+       f1.update_layout(title='<b>Seasons('+s4+ ')</b>',title_x=0.5)
        #f.update_layout(xaxis = dict(rangeslider = dict(visible=True),type='date'),template='plotly_white')
-       f.update_layout(modebar_remove=['toImageButtonOptions','zoom', 'pan','select', 'zoomIn', 'zoomOut','lasso2d','sendDataToCloud','toImage'])
+       f1.update_layout(modebar_remove=['toImageButtonOptions','zoom', 'pan','select', 'zoomIn', 'zoomOut','lasso2d','sendDataToCloud','toImage'])
        plotly_pane2 = pn.pane.Plotly(f1) 
        #f.write_html('season_anime.html',include_plotlyjs='cdn')
        

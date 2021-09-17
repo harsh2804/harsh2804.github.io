@@ -106,7 +106,7 @@ m1 = int(k1.year.min())
 m2 = int(k1.year.max())
 m3 = list(range(m1,m2+1))
 m4 = list(k1.month.unique())
-s = pn.widgets.Select(name = '**Start Year**',options =m3,width = 80)
+s = pn.widgets.Select(name = pn.pane.HTML('<h1>Start Year</h1>'),options =m3,width = 80)
 s1 = pn.widgets.Select(name = 'End Year',options =m3,width=80)
 s2 = pn.widgets.Select(name = 'Start Month',options =m4,width = 80)
 s3 = pn.widgets.Select(name = 'End Month',options =m4,width = 80)
@@ -545,7 +545,7 @@ def p4(s,s1,s2,s3,s4):
  #return pn.pane.Plotly(k,width = 400,height =400)
 #f1 = p1(s,s1,s2,s3,s4)
 #k1 = pn.pane.Plotly(p1)
-value1 = "Dear user  Welcome to the data visualization of Seasonal Variation of rainfall of Subdivision  . Select start year , start mnth, end year , end month from the dropdown given below "
+value1 = "Dear user!  Welcome to the data visualization of Seasonal Variation of rainfall of Subdivision  . Select start year , start month, end year , end month from the dropdown given below "
 value2 = "Monthly series of rainfall for 36 subdivisions of India are used for this analysis. More details regarding the data set is available at https://imdpune.gov.in/Clim_Pred_LRF_New/Reports.html"
 
 value = value1# + value2

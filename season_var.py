@@ -256,7 +256,7 @@ def p1(s,s1,s2,s3,s4):
  #ax.quiver(x1,y1,1,1,color='red')      
  ax.text(x1,y1,'max=' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
        
- ax.xaxis.set_ticks(np.arange(c.year.min()-1, c.year.max()+2, 1))
+ ax.xaxis.set_ticks(np.arange(c.year.min()-1, c.year.max()+2, 5))
  ax.set_xticklabels(ax.get_xticks(), rotation = 45)
 
  #c.plot.line('year','rain',ax = ax)
@@ -607,7 +607,7 @@ gsp[1,2:3] = p2
 w1 = pn.Column(file_download,pn.panel(p1,loading_indicator=True))
 w2 = pn.Card(pn.Column(p3,p4),sizing_mode = 'stretch_width')
 w3 =  pn.Card(pn.Column(table_with_export_buttons,p2),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
-w4 = pn.Row(w1,w2,w3)
+w4 = pn.Column(w1,w2,w3)
 
 
 

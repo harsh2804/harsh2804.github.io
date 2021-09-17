@@ -570,7 +570,7 @@ b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsi
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 
 kks = pn.Column(table_with_export_buttons,p2)
-box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),p3,p4,table_with_export_buttons,p2])
+box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),p3,p4,kks])
 column_box = box1.clone(flex_direction='column')
 
 gsp = pn.GridSpec(sizing_mode='stretch_both')

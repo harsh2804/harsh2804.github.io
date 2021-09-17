@@ -604,15 +604,17 @@ gsp[1,2:3] = p2
 
 
 
-
-
+w1 = pn.Column(file_download,pn.panel(p1,loading_indicator=True))
+w2 = pn.Card(pn.Column(p3,p4),sizing_mode = 'stretch_width')
+w3 =  pn.Card(pn.Column(table_with_export_buttons,p2),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
+w4 = pn.Row(w1,w2,w3)
 
 
 
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
                             sidebar = [box2,al,s4,s,s1,s2,s3],  
                             main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.",
-                                   column_box]).servable();
+                                   w4]).servable();
 
 
 

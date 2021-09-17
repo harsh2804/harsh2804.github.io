@@ -106,10 +106,10 @@ m1 = int(k1.year.min())
 m2 = int(k1.year.max())
 m3 = list(range(m1,m2+1))
 m4 = list(k1.month.unique())
-s = pn.widgets.Select(name = 'start year',options =m3,width = 100)
-s1 = pn.widgets.Select(name = 'end year',options =m3,width=100)
-s2 = pn.widgets.Select(name = 'start month',options =m4,width = 100)
-s3 = pn.widgets.Select(name = 'end month',options =m4,width = 100)
+s = pn.widgets.Select(name = '**Start Year**',options =m3,width = 80)
+s1 = pn.widgets.Select(name = 'End Year',options =m3,width=80)
+s2 = pn.widgets.Select(name = 'Start Month',options =m4,width = 80)
+s3 = pn.widgets.Select(name = 'End Month',options =m4,width = 80)
 
 #s.jslink(s4,value='value')
 #s1.jslink(s4,value='value')
@@ -556,7 +556,7 @@ text1 = pn.Row(bb.controls(jslink=False), bb, width=600,height = 100)
 
 
 def btt(event):
-    bb.voice= bb.voices[2]    
+    #bb.voice= bb.voices[2]    
     bb.speak = True
     bb.volume = 1
     bb.pitch = 1

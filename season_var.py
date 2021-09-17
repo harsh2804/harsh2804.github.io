@@ -583,8 +583,7 @@ gsp[1,2:3] = p2
 
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
                             sidebar = [al,s4,s,s1,s2,s3,text1],  
-                            main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.
-                                   Monthly series of rainfall for 36 subdivisions of India are used for this analysis. More details regarding the data set is available at <a>https://imdpune.gov.in/Clim_Pred_LRF_New/Reports.html</a>",
+                            main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.\n Monthly series of rainfall for 36 subdivisions of India are used for this analysis. More details regarding the data set is available at <a>https://imdpune.gov.in/Clim_Pred_LRF_New/Reports.html</a>",
                                    column_box]).servable();
 
 

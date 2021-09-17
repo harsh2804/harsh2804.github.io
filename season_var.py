@@ -225,7 +225,7 @@ def p1(s,s1,s2,s3,s4):
      c.year = c['s']
 
  #c['year'] = c['year'].astype(str
- c['year']  = pd.to_datetime(c['year'], format='%Y')
+ #c['year']  = pd.to_datetime(c['year'], format='%Y')
  m1 = c['rain'].idxmax()
  x1 = c['year'][m1]
  y1 = round(c['rain'][m1],2)
@@ -256,11 +256,11 @@ def p1(s,s1,s2,s3,s4):
  ax.set_ylabel('rainfall(mm)')
  #ax.quiver(x1,y1,1,1,color='red')      
  ax.text(x1,y1,'max value->' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
- date_form = DateFormatter("%Y")
- ax.xaxis.set_major_formatter(date_form)  
+ #date_form = DateFormatter("%Y")
+ #ax.xaxis.set_major_formatter(date_form)  
    
- #ax.xaxis.set_ticks(np.arange(c.year.min()-1, c.year.max()+2, 5))
- #ax.set_xticklabels(ax.get_xticks(), rotation = 45)
+ ax.xaxis.set_ticks(np.arange(c.year.min()-1, c.year.max()+2, 10))
+ ax.set_xticklabels(ax.get_xticks(), rotation = 45)
 
  #c.plot.line('year','rain',ax = ax)
  #extent = ax.get_window_extent().transformed(f.dpi_scale_trans.inverted())

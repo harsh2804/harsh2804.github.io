@@ -224,7 +224,8 @@ def p1(s,s1,s2,s3,s4):
      c = c.reset_index()
      c.year = c['s']
 
- c['year'] = c['year'].astype(str)
+ #c['year'] = c['year'].astype(str
+ c['year']  = pd.to_datetime(c['year'], format='%Y')
  m1 = c['rain'].idxmax()
  x1 = c['year'][m1]
  y1 = round(c['rain'][m1],2)

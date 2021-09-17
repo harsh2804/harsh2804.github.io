@@ -550,13 +550,17 @@ text = pn.Param(bb.param.value)
 text1 = pn.Row(bb.controls(jslink=False), bb, width=600,height = 100)
 
 
-def b(event):
-    bb.speak = True
+def btt(event):
+    basic_speaker.speak = True
+    basic_speaker.volume = 1
+    basic_speaker.pitch = 1
+    basic_speaker.rate = 1
+    basic_speaker.lang = 'en-US'
 
 
 button = pn.widgets.Button(name='Click me for Instructions', button_type='primary')
-button.on_click(b)
-box2 = pn.WidgetBox('# Instructions', button)
+button.on_click(btt)
+box2 = pn.WidgetBox('# Instructions', button,bb)
 
 
 

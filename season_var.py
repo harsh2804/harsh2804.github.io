@@ -545,9 +545,9 @@ value2 = "Monthly series of rainfall for 36 subdivisions of India are used for t
 
 value = value1# + value2
 bb = pn.widgets.TextToSpeech(name = "Speech Synthesis",value = value,auto_speak = False)
-#text = pn.Param(bb.param.value)
+text = pn.Param(bb.param.value)
 
-#text1 = pn.Row(bb.controls(jslink=False), bb, width=600,height = 100)
+text1 = pn.Row(bb.controls(jslink=False), bb, width=600,height = 100)
 
 
 def b(event):

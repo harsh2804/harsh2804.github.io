@@ -540,7 +540,7 @@ def p4(s,s1,s2,s3,s4):
  #return pn.pane.Plotly(k,width = 400,height =400)
 #f1 = p1(s,s1,s2,s3,s4)
 #k1 = pn.pane.Plotly(p1)
-value1 = "welcome to the data visualization of Seasonal Variation  of Subdivision  . Select start year , start mnth,end year ,end month from the dropdown given above "
+value1 = "Welcome to the data visualization of Seasonal Variation  of Subdivision  . Select start year , start mnth,end year ,end month from the dropdown given below "
 value2 = "Monthly series of rainfall for 36 subdivisions of India are used for this analysis. More details regarding the data set is available at https://imdpune.gov.in/Clim_Pred_LRF_New/Reports.html"
 
 value = value1# + value2
@@ -603,7 +603,7 @@ gsp[1,2:3] = p2
 
 
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
-                            sidebar = [al,s4,s,s1,s2,s3,box2],  
+                            sidebar = [box2,al,s4,s,s1,s2,s3],  
                             main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.",
                                    column_box]).servable();
 

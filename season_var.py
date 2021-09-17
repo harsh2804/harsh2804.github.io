@@ -545,8 +545,13 @@ text = pn.Param(bb.param.value)
 text1 = pn.Row(bb.controls(jslink=False), bb, width=600,height = 100)
 
 
+def b(event):
+    #bb.value = value
+    bb.speak = True
 
 
+button = pn.widgets.Button(name='Click me for Instructions', button_type='primary')
+box2 = pn.WidgetBox('# Instructions', button)
 
 
 
@@ -587,10 +592,15 @@ gsp[1,2:3] = p2
 
 
 
+
+
+
+
+
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
-                            sidebar = [al,s4,s,s1,s2,s3,text1],  
+                            sidebar = [al,s4,s,s1,s2,s3,box2],  
                             main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.",
-                                   box1]).servable();
+                                   column_box]).servable();
 
 
 

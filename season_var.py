@@ -271,7 +271,8 @@ def p1(s,s1,s2,s3,s4):
  df_2.columns = ['Statistics','values(mm)']
  df_2['values(mm)'] = df_2['values(mm)'].round(2)     
  df_2 = df_2[df_2['Statistics'].isin(l1)]
- df_2['Statistics'] = df_2['Statistics'].replace({'50%':'Median','mean':'Mean','std':'Standard Deviation','max':'Maximum'})
+ df_2['Statistics'] = df_2['Statistics'].replace({'50%':'Median','mean':'Mean','std':'Standard Deviation','max':'Maximum Value'})
+ df_2.loc[len(df_2.index)] = ['Year(Max Value)', c.loc[c['rain'].idxmax(), 'year']]
  df_2.set_index('Statistics',inplace=True)
  print(df_2)
  d.value =  df_2

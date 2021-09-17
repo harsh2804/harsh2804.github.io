@@ -573,7 +573,8 @@ b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsi
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 
 kks = pn.Row(table_with_export_buttons,p2)
-box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),p3,p4,kks])
+kks1 = pn.Card(pn.Column(p3,p4))
+box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),kks1,kks])
 column_box = box1.clone(flex_direction='column')
 
 gsp = pn.GridSpec(sizing_mode='stretch_both')

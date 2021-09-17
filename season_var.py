@@ -250,13 +250,13 @@ def p1(s,s1,s2,s3,s4):
  m2 = db2.strftime("%b") 
  #Title: Seasonal variation (Jan-Mar) of rainfall over Bihar for the period 1901-2020
  f.suptitle('Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '\n for the period ' + str(s) + '-'  + str(s1) , fontsize=20)
- ax.plot(c.year,c.rain,marker = 'o')
+ ax.plot(c.year.astype(str),c.rain,marker = 'o')
  ax.set_xlabel('year')
  ax.set_ylabel('rain(mm)')
  #ax.quiver(x1,y1,1,1,color='red')      
  ax.text(x1,y1,'max value->' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
        
- ax.xaxis.set_ticks(np.arange(c.year.min()-1, c.year.max()+2, 5))
+ #ax.xaxis.set_ticks(np.arange(c.year.min()-1, c.year.max()+2, 5))
  ax.set_xticklabels(ax.get_xticks(), rotation = 45)
 
  #c.plot.line('year','rain',ax = ax)
@@ -543,7 +543,7 @@ def p4(s,s1,s2,s3,s4):
  #return pn.pane.Plotly(k,width = 400,height =400)
 #f1 = p1(s,s1,s2,s3,s4)
 #k1 = pn.pane.Plotly(p1)
-value1 = "Welcome to the data visualization of Seasonal Variation  of Subdivision  . Select start year , start mnth,end year ,end month from the dropdown given below "
+value1 = "Dear user  Welcome to the data visualization of Seasonal Variation of rainfall of Subdivision  . Select start year , start mnth, end year , end month from the dropdown given below "
 value2 = "Monthly series of rainfall for 36 subdivisions of India are used for this analysis. More details regarding the data set is available at https://imdpune.gov.in/Clim_Pred_LRF_New/Reports.html"
 
 value = value1# + value2

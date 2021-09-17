@@ -1,7 +1,7 @@
 from PIL import Image
 import matplotlib.cbook as cbook
 import matplotlib.image as image
-
+from matplotlib.dates import DateFormatter
 
 from time import strptime
 import plotly.express as px

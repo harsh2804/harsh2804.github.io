@@ -137,7 +137,7 @@ def p2(s4):
 
 d  = pn.widgets.DataFrame(width = 300,height = 400)  
 
-table_with_export_buttons = pn.pane.HTML("<h1>hello</h1>",sizing_mode='stretch_width', margin=(10,5,25,5))
+table_with_export_buttons = pn.pane.HTML("<h1>hello</h1>", margin=(10,5,25,5))  #sizing_mode='stretch_width'
 
 #file_download_csv = pn.widgets.FileDownload(filename="Statistical.csv", button_type="primary")   
 

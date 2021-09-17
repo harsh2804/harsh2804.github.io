@@ -249,12 +249,14 @@ def p1(s,s1,s2,s3,s4):
  ax.set_xlabel('year')
  ax.set_ylabel('rain(mm)')
  #ax.quiver(x1,y1,1,1,color='red')      
- ax.text(x1,y1,'max=' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')   
+ ax.text(x1,y1,'max=' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
+       
+ ax.xaxis.set_ticks(np.arange(c.year.min()-1, c.year.max()+2, 1))       
  #c.plot.line('year','rain',ax = ax)
  #extent = ax.get_window_extent().transformed(f.dpi_scale_trans.inverted())
  #plt.savefig('figure.png',format='png',bbox_inches=extent)
  ax.figure.savefig('figure.png')
- ax.set_xlim(c.year.min()-1,c.year.max()+2)
+ #ax.set_xlim(c.year.min()-1,c.year.max()+2)
  l1 = ['mean','50%','std','max']
  k3 = c["rain"].describe()
  df_2 = pd.DataFrame({'Values': k3})
@@ -572,8 +574,8 @@ a6 = pn.Row(d6,pn.Card(gif_pane,title='Gowing Visualization of seasonal variatio
 b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsible =False,background='WhiteSmoke',header_background='success'), pn.Card(p2,title='Highest 5 ever recorded rain'))
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 
-kks = pn.Row(table_with_export_buttons,p2)
-kks1 = pn.Card(pn.Column(p3,p4))
+kks = pn.Card(pn.Row(table_with_export_buttons,p2),title='Statistical Table for selected period')
+kks1 = pn.Card(pn.Row(p3,p4))
 box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),kks1,kks])
 column_box = box1.clone(flex_direction='column')
 

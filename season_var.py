@@ -551,11 +551,12 @@ text1 = pn.Row(bb.controls(jslink=False), bb, width=600,height = 100)
 
 
 def btt(event):
-    basic_speaker.speak = True
-    basic_speaker.volume = 1
-    basic_speaker.pitch = 1
-    basic_speaker.rate = 1
-    basic_speaker.lang = 'en-US'
+    bb.speak = True
+    bb.volume = 1
+    bb.pitch = 1
+    bb.rate = 1
+    bb.lang = 'en-US'
+    bb.voice= bb.voices[2]
 
 
 button = pn.widgets.Button(name='Click me for Instructions', button_type='primary')

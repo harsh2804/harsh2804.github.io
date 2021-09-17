@@ -224,7 +224,7 @@ def p1(s,s1,s2,s3,s4):
  y1 = round(c['rain'][m1],2)
  # = pn.widgets.DataFrame(c)   
  #print(c)
- f = Figure(figsize=(10,9),dpi = 200)
+ f = Figure(figsize=(14,9),dpi = 200)
  #cw = os.getcwd()
  im1 = Image.open('static/imd_logo.png')
  sz = im1.size
@@ -472,7 +472,57 @@ def p3(s,s1,s2,s3,s4):
         
        plotly_pane1 = pn.pane.Plotly(f) 
        
-       return plotly_pane1
+       s1 = b['rainfall(mm)'].min()
+       s2 = b['rainfall(mm)'].max() + 10
+
+
+       f1=px.bar(b, x='seasons',y = 'rainfall(mm)', hover_name = "year", color='seasons',
+            animation_frame= 'year', barmode='group',range_y=[s1,s2])
+       plotly_pane2 = pn.pane.Plotly(f1) 
+       #f.write_html('season_anime.html',include_plotlyjs='cdn')
+       
+       
+       return plotly_pane1,plotly_pane2
+
+
+
+
+
+@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
+def p4(s,s1,s2,s3,s4):
+
+       a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
+
+       a = a[['Column3','Column22','Column18','Column19','Column20','Column21']]
+       a.columns = ['year','name','JF','MAM','JJAS','OND']
+
+       #a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)
+
+       b = a.set_index(['year','name']).stack().reset_index()
+       #print(b)
+       b.columns = ['year','name','seasons','rainfall(mm)']
+       b = b[b.name == s4]
+       b = b.replace(-99.9,0)
+       #b.month = b.month.astype(int)
+       #b['color'] = np.where(b.seasons =='JS','red',np.where(b.seasons =='JJAS','blue',np.where(b.seasons =='MM','green','white')))
+     
+
+       
+
+     
+       
+       s1 = b['rainfall(mm)'].min()
+       s2 = b['rainfall(mm)'].max() + 10
+       f1=px.bar(b, x='seasons',y = 'rainfall(mm)', hover_name = "year", color='seasons',
+            animation_frame= 'year', barmode='group',range_y=[s1,s2])
+       f.update_layout(title='<b>Seasons('+s4+ ')</b>',title_x=0.5)
+       #f.update_layout(xaxis = dict(rangeslider = dict(visible=True),type='date'),template='plotly_white')
+       f.update_layout(modebar_remove=['toImageButtonOptions','zoom', 'pan','select', 'zoomIn', 'zoomOut','lasso2d','sendDataToCloud','toImage'])
+       plotly_pane2 = pn.pane.Plotly(f1) 
+       #f.write_html('season_anime.html',include_plotlyjs='cdn')
+       
+       
+       return plotly_pane2
 
 
 
@@ -526,7 +576,7 @@ b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsi
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 
 kks = pn.Column(table_with_export_buttons,p2)
-box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),p3,table_with_export_buttons,p2])
+box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),p3,p4,table_with_export_buttons,p2])
 column_box = box1.clone(flex_direction='column')
 
 gsp = pn.GridSpec(sizing_mode='stretch_both')

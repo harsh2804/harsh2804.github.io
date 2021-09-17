@@ -18,6 +18,7 @@ import plotly.graph_objects as go
 #from bokeh.resources import INLINE
 import panel as pn
 import numpy as np
+import codecs
 import datetime
 from io import BytesIO
 from panel.widgets import SpeechToText, GrammarList
@@ -510,10 +511,12 @@ def p4(s,s1,s2,s3,s4):
        #f.update_layout(xaxis = dict(rangeslider = dict(visible=True),type='date'),template='plotly_white')
        f1.update_layout(modebar_remove=['toImageButtonOptions','zoom', 'pan','select', 'zoomIn', 'zoomOut','lasso2d','sendDataToCloud','toImage'])
        plotly_pane2 = pn.pane.Plotly(f1) 
-       #f.write_html('season_anime.html',include_plotlyjs='cdn')
+       f1.write_html('season_anime.html',include_plotlyjs='cdn')
+    
+       f2=codecs.open("season_anime.html", 'r')
+       html_pane = pn.pane.HTML(f2)
        
-       
-       return plotly_pane2
+       return html_pane
 
 
 
@@ -580,7 +583,8 @@ gsp[1,2:3] = p2
 
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
                             sidebar = [al,s4,s,s1,s2,s3,text1],  
-                            main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.",
+                            main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.
+                                   Monthly series of rainfall for 36 subdivisions of India are used for this analysis. More details regarding the data set is available at <a>https://imdpune.gov.in/Clim_Pred_LRF_New/Reports.html</a>",
                                    column_box]).servable();
 
 

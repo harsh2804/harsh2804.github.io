@@ -279,7 +279,7 @@ def p1(s,s1,s2,s3,s4):
 
  #pn.param.ParamMethod.loading_indicator = False
  #ld.value=False         
- return f
+ return pn.pane.Matplotlib(f)
 
 
 
@@ -514,7 +514,7 @@ def p4(s,s1,s2,s3,s4):
        f1.write_html('season_anime.html',include_plotlyjs='cdn')
     
        f2=codecs.open("season_anime.html", 'r')
-       html_pane = pn.pane.HTML(f2.read(),sizing_mode = 'stretch_width)
+       html_pane = pn.pane.HTML(f2.read(),sizing_mode = 'stretch_width')
        
        return html_pane
 

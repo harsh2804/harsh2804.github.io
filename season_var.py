@@ -605,7 +605,7 @@ gsp[1,2:3] = p2
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
                             sidebar = [box2,al,s4,s,s1,s2,s3],  
                             main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.",
-                                   column_box]).servable();
+                                   box1]).servable();
 
 
 

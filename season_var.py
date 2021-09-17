@@ -224,7 +224,7 @@ def p1(s,s1,s2,s3,s4):
      c = c.reset_index()
      c.year = c['s']
 
-
+ c['year'] = c['year'].astype(str)
  m1 = c['rain'].idxmax()
  x1 = c['year'][m1]
  y1 = round(c['rain'][m1],2)
@@ -250,9 +250,9 @@ def p1(s,s1,s2,s3,s4):
  m2 = db2.strftime("%b") 
  #Title: Seasonal variation (Jan-Mar) of rainfall over Bihar for the period 1901-2020
  f.suptitle('Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '\n for the period ' + str(s) + '-'  + str(s1) , fontsize=20)
- ax.plot(c.year.astype(str),c.rain,marker = 'o')
+ ax.plot(c.year,c.rain,marker = 'o')
  ax.set_xlabel('year')
- ax.set_ylabel('rain(mm)')
+ ax.set_ylabel('rainfall(mm)')
  #ax.quiver(x1,y1,1,1,color='red')      
  ax.text(x1,y1,'max value->' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
        
@@ -535,7 +535,6 @@ def p4(s,s1,s2,s3,s4):
 
 
 
-
  #k = plt.plot(c.year,c.rain)
  #return pn.pane.Matplotlib(k,width = 400,height =400)
  #return f #plt.gcf()
@@ -628,7 +627,6 @@ pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),  
 
 #pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com",address="0.0.0.0")#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)
 #sizing_mode = 'stretch_both'
-
 
 
 #ppn.pane.panel(k)

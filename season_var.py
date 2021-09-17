@@ -518,7 +518,7 @@ def p4(s,s1,s2,s3,s4):
        f2=codecs.open("season_anime.html", 'r')
        html_pane = pn.pane.HTML(f2.read())
        
-       return pn.Card(html_pane,sizing_mode = 'stretch_width')
+       return html_pane
 
 
 
@@ -574,8 +574,8 @@ a6 = pn.Row(d6,pn.Card(gif_pane,title='Gowing Visualization of seasonal variatio
 b6 = pn.Row(pn.Card(table_with_export_buttons,title='Statistical Table',collapsible =False,background='WhiteSmoke',header_background='success'), pn.Card(p2,title='Highest 5 ever recorded rain'))
 c6 = pn.Column(a6,b6,sizing_mode='stretch_both')                                                                                                                                        
 
-kks = pn.Card(pn.Row(table_with_export_buttons,p2),title='Statistical Table for selected period')
-kks1 = pn.Card(pn.Row(p3,p4))
+kks = pn.Card(pn.Row(table_with_export_buttons,p2),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
+kks1 = pn.Card(pn.Row(p3,p4),sizing_mode = 'stretch_width')
 box1 = pn.FlexBox(*[pn.Column(file_download,pn.panel(p1,loading_indicator=True)),kks1,kks])
 column_box = box1.clone(flex_direction='column')
 

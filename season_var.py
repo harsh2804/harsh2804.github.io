@@ -254,7 +254,7 @@ def p1(s,s1,s2,s3,s4):
  ax.set_xlabel('year')
  ax.set_ylabel('rain(mm)')
  #ax.quiver(x1,y1,1,1,color='red')      
- ax.text(x1,y1,'max=' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
+ ax.text(x1,y1,'max value->' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
        
  ax.xaxis.set_ticks(np.arange(c.year.min()-1, c.year.max()+2, 5))
  ax.set_xticklabels(ax.get_xticks(), rotation = 45)
@@ -627,7 +627,6 @@ pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),  
 
 #pn.serve(bootstrap,websocket_origin = "season-var.herokuapp.com",address="0.0.0.0")#,port = 8085)#.save('test.html')#,embed=True,embed_json=True,max_states= 3)
 #sizing_mode = 'stretch_both'
-
 
 
 

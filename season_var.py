@@ -260,7 +260,7 @@ def p1(s,s1,s2,s3,s4):
  ax.xaxis.set_major_formatter(date_form)  
    
  #ax.xaxis.set_ticks(np.arange(c.year.min()-1, c.year.max()+2, 5))
- ax.set_xticklabels(ax.get_xticks(), rotation = 45)
+ #ax.set_xticklabels(ax.get_xticks(), rotation = 45)
 
  #c.plot.line('year','rain',ax = ax)
  #extent = ax.get_window_extent().transformed(f.dpi_scale_trans.inverted())

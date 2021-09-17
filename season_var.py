@@ -514,7 +514,7 @@ def p4(s,s1,s2,s3,s4):
        f1.write_html('season_anime.html',include_plotlyjs='cdn')
     
        f2=codecs.open("season_anime.html", 'r')
-       html_pane = pn.pane.HTML(f2)
+       html_pane = pn.pane.HTML(f2.read())
        
        return html_pane
 

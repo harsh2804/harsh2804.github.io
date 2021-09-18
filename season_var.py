@@ -150,8 +150,9 @@ al = pn.pane.Alert("Hello")
 ld = pn.indicators.LoadingSpinner(width=100,height=100,color='primary',bgcolor='dark')
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
+@asyncio.coroutine
 async def p1(s,s1,s2,s3,s4):
- loop = asyncio.get_event_loop()
+ await asyncio.sleep(2)
  al.object='welcome to seasonal plot'
  al.alert_type = 'info'
  if(s > s1):
@@ -616,7 +617,7 @@ gsp[1,0:1] = table_with_export_buttons
 gsp[1,2:3] = p2
 
 
-p6=asyncio.get_event_loop().run_until_complete(p1(s, s1, s2, s3, s4)) 
+#p6=asyncio.get_event_loop().run_until_complete(p1(s, s1, s2, s3, s4)) 
 
 w1 = pn.Column(file_download,pn.panel(p1,loading_indicator=True))
 w2 = pn.Card(pn.Row(p3,p4),sizing_mode = 'stretch_width')

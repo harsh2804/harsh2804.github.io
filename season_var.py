@@ -564,14 +564,16 @@ def btt(event):
     bb.lang = 'en-US'
     
 
+video = pn.pane.Video('https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_640_3MG.mp4', loop=True)
+
+
 button = pn.widgets.Button(name='Click me for Instructions', button_type='primary')
 button.on_click(btt)
-box2 = pn.WidgetBox('# Instructions', button,bb)
+box2 = pn.WidgetBox('# Instructions', button,bb, video)
 
 
 
 
-video = pn.pane.Video('https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_640_3MG.mp4', loop=True)
 
 
 bootstrap.sidebar.append(s4)
@@ -619,7 +621,7 @@ w4 = pn.Column(w1,w2,w3)
 
 
 pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="Seasonal Variation", 
-                            sidebar = [box2,al,s4,s,s1,s2,s3,video],  
+                            sidebar = [box2,al,s4,s,s1,s2,s3],  
                             main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.",
                                    w4]).servable();
 

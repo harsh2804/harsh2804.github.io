@@ -616,7 +616,7 @@ gsp[1,2:3] = p2
 w1 = pn.Column(file_download,pn.panel(p1,loading_indicator=True))
 w2 = pn.Card(pn.Column(p3,p4),sizing_mode = 'stretch_width')
 w3 =  pn.Card(pn.Column(table_with_export_buttons,p2),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
-w4 = pn.Column(w1,w2,w3)
+w4 = pn.Column(w1,pn.Row(w2,w3))
 
 
 

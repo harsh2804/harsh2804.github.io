@@ -402,7 +402,7 @@ def p2(s,s1,s2,s3,s4):
           
            #df2 = df2.set_index('dates')#.resample('Y').sum()
            
-           df2 = df2.groupby(['s'])['Monthly_rain'].agg('sum') #.sum()
+           df2 = df2.groupby(['s'])['rain'].agg('sum') #.sum()
           
            df2= df2.reset_index()
            df2.year = df2['s']

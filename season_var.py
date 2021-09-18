@@ -242,7 +242,7 @@ def p1(s,s1,s2,s3,s4):
  #f.bbox.xmax-width
  plt.style.use('fivethirtyeight')   
  ax =f.subplots()
- print(height)      
+ #print(height)      
  ax.figure.figimage(im1, f.bbox.xmax-width, f.bbox.ymax-height)      
  FigureCanvas(f)
  db1 = datetime.datetime.strptime(str(s2),"%m")
@@ -277,7 +277,7 @@ def p1(s,s1,s2,s3,s4):
  df_2['Statistics'] = df_2['Statistics'].replace({'50%':'Median','mean':'Mean','std':'Standard Deviation','max':'Maximum Value'})
  df_2.loc[len(df_2.index)] = ['Year(Max Value)', c.loc[c['rain'].idxmax(), 'year']]
  df_2.set_index('Statistics',inplace=True)
- print(df_2)
+ #print(df_2)
  d.value =  df_2
     
  html = df_2.to_html(classes=['example2', 'panel-df'])

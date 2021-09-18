@@ -9,6 +9,7 @@ from plotly.offline import plot
 import plotly.graph_objects as go
 
 import os
+import asyncio
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -148,7 +149,7 @@ al = pn.pane.Alert("Hello")
 ld = pn.indicators.LoadingSpinner(width=100,height=100,color='primary',bgcolor='dark')
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
-def p1(s,s1,s2,s3,s4):
+async def p1(s,s1,s2,s3,s4):
  al.object='welcome to seasonal plot'
  al.alert_type = 'info'
  if(s > s1):

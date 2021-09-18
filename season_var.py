@@ -119,6 +119,7 @@ s3 = pn.widgets.Select(name = 'End Month',options =m4,width = 80)
 
 #d = pn.widgets.DataFrame(b)  
 
+'''
 @pn.depends(s4.param.value,watch = True)
 def p2(s4):
  k = s4
@@ -135,7 +136,7 @@ def p2(s4):
  #s1.value = m3[0]
  #s2.value = m4[0]
  #s3.value = m4[0]
-
+'''
 d  = pn.widgets.DataFrame(width = 300,height = 400)  
 
 table_with_export_buttons = pn.pane.HTML("<h1>hello</h1>", margin=(10,5,25,5))  #sizing_mode='stretch_width'
@@ -150,6 +151,7 @@ ld = pn.indicators.LoadingSpinner(width=100,height=100,color='primary',bgcolor='
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 async def p1(s,s1,s2,s3,s4):
+ await asyncio.sleep(2)
  al.object='welcome to seasonal plot'
  al.alert_type = 'info'
  if(s > s1):
@@ -300,7 +302,7 @@ async def p1(s,s1,s2,s3,s4):
 
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
-def p2(s,s1,s2,s3,s4):
+async def p2(s,s1,s2,s3,s4):
         if(s > s1):
            return
         elif((s == s1) &  (s2 > s3)):
@@ -461,7 +463,7 @@ def p2(s,s1,s2,s3,s4):
 
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
-def p3(s,s1,s2,s3,s4):
+async def p3(s,s1,s2,s3,s4):
 
        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
 
@@ -495,7 +497,7 @@ def p3(s,s1,s2,s3,s4):
 
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
-def p4(s,s1,s2,s3,s4):
+async def p4(s,s1,s2,s3,s4):
 
        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
 

@@ -315,13 +315,13 @@ def p1(s,s1,s2,s3,s4):
 
 
 
-@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
-def p2(s,s1,s2,s3,s4):
+@pn.depends(s2.param.value,s3.param.value,s4.param.value)#,s3.param.value,s4.param.value)
+def p2(s2,s3,s4):#,s3,s4):
        # await asyncio.sleep(2)
-        if(s > s1):
-           return
-        elif((s == s1) &  (s2 > s3)):
-           return
+        #if(s > s1):
+         #  return
+       # elif((s == s1) &  (s2 > s3)):
+         #  return
         mm1 = s2  #strptime(st_mon,'%b').tm_mon
         mm2 = s3 #strptime(et_mon,'%b').tm_mon
         a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
@@ -338,8 +338,8 @@ def p2(s,s1,s2,s3,s4):
         un = 'rain'
 
   
-        l1 = pd.to_datetime(str(s) + '-' + str(s2) + '-01')   
-        l2 = pd.to_datetime(str(s1) + '-' + str(s3) + '-01')
+        #l1 = pd.to_datetime(str(s) + '-' + str(s2) + '-01')   
+        #l2 = pd.to_datetime(str(s1) + '-' + str(s3) + '-01')
 
   
         #df2['dates'] = pd.to_datetime(df2.year.astype(str) + '-' + df2.month.astype(str) + '-01')
@@ -481,8 +481,8 @@ def p2(s,s1,s2,s3,s4):
 
 
 
-@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
-def p3(s,s1,s2,s3,s4):
+@pn.depends(s4.param.value)#,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
+def p3(s4): #,s1,s2,s3,s4):
       # await asyncio.sleep(2)
        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
 
@@ -516,8 +516,8 @@ def p3(s,s1,s2,s3,s4):
 
 
 
-@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
-def p4(s,s1,s2,s3,s4):
+@pn.depends(s4.param.value)#,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
+def p4(s4):#,s1,s2,s3,s4):
     #   await asyncio.sleep(2)
        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
 

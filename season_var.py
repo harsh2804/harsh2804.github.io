@@ -95,6 +95,18 @@ height = im1.size[1]
 width = im1.size[0]
 im1 = np.array(im1).astype(np.float) / 255
 
+
+f = Figure(figsize=(12,9),dpi = 200)
+#cw = os.getcwd()
+#f.bbox.xmax-width
+plt.style.use('fivethirtyeight')   
+ax =f.subplots()
+#print(height)      
+ax.figure.figimage(im1, f.bbox.xmax-width, f.bbox.ymax-height)      
+FigureCanvas(f)
+
+
+
 title = '## hello'
 m5 = list(b['name'].unique())
 #m1 = int(b.year.min())
@@ -252,6 +264,7 @@ def p1(s,s1,s2,s3,s4):
  y1 = round(c['rain'][m1],2)
  # = pn.widgets.DataFrame(c)   
  #print(c)
+ '''
  f = Figure(figsize=(12,9),dpi = 200)
  #cw = os.getcwd()
  
@@ -261,6 +274,7 @@ def p1(s,s1,s2,s3,s4):
  #print(height)      
  ax.figure.figimage(im1, f.bbox.xmax-width, f.bbox.ymax-height)      
  FigureCanvas(f)
+ '''
  db1 = datetime.datetime.strptime(str(s2),"%m")
  m1 = db1.strftime("%b")
  db2 = datetime.datetime.strptime(str(s3),"%m")
@@ -299,8 +313,8 @@ def p1(s,s1,s2,s3,s4):
     
  html = df_2.to_html(classes=['example2', 'panel-df'])
  table_with_export_buttons.object = html+script
- def get_csv():
-    return BytesIO(c.to_csv().encode())   
+ #def get_csv():
+ #  return BytesIO(c.to_csv().encode())   
  
  #file_download_csv = pn.widgets.FileDownload(filename="data.csv", callback=kk, button_type="primary") 
  #file_download_csv =get_csv  

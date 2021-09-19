@@ -631,7 +631,7 @@ gsp[1,2:3] = p2
 
 #p6=asyncio.get_event_loop().run_until_complete(p1(s, s1, s2, s3, s4)) 
 
-w1 = pn.Column(file_download,pn.panel(p1,loading_indicator=True))
+w1 = pn.Column(pn.Card(file_download,pn.panel(p1,loading_indicator=True)))
 w2 = pn.Card(pn.Row(p3,p4),sizing_mode = 'stretch_width')
 w3 =  pn.Card(pn.Row(table_with_export_buttons,p2),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
 w4 = pn.Column(w1,w2,w3)

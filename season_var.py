@@ -9,7 +9,7 @@ from plotly.offline import plot
 import plotly.graph_objects as go
 
 
-from diskcache import FanoutCache
+#from diskcache import FanoutCache
 
 import os
 import asyncio
@@ -49,10 +49,10 @@ pn.extension(loading_spinner='dots',loading_color='#00aa41',sizing_mode = 'stret
 #template = 'bootstrap'
 
 
-EXPIRE = 5 * 60  # 5 minutes
-CACHE_DIRECTORY = "cache"
+#EXPIRE = 5 * 60  # 5 minutes
+#CACHE_DIRECTORY = "cache"
 
-cache = FanoutCache(directory=CACHE_DIRECTORY)
+#cache = FanoutCache(directory=CACHE_DIRECTORY)
 
 
 
@@ -159,7 +159,7 @@ al = pn.pane.Alert("Hello")
 
 ld = pn.indicators.LoadingSpinner(width=100,height=100,color='primary',bgcolor='dark')
 
-@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
+@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value,cache=True)
 #@asyncio.coroutine
 def p1(s,s1,s2,s3,s4):
  #await asyncio.sleep(2)

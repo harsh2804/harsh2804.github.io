@@ -308,7 +308,7 @@ def p1(s,s1,s2,s3,s4):
 
  #pn.param.ParamMethod.loading_indicator = False
  #ld.value=False         
- return pn.pane.Matplotlib(f)
+ return pn.pane.Matplotlib(f,tight=True )
 
 
 

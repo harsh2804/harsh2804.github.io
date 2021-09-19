@@ -502,7 +502,7 @@ def p3(s,s1,s2,s3,s4):
        #f.update_xaxes(showgrid= False)#range=[min(df3[un])-2,max(df3[un])+2])
         
        f.layout.autosize = True
-       plotly_pane1 = pn.pane.Plotly(f,config={'responsive': True}) 
+       plotly_pane1 = pn.pane.Plotly(f,config={'responsive': True, 'displaylogo': False }) 
        
        
        return plotly_pane1
@@ -544,10 +544,15 @@ def p4(s,s1,s2,s3,s4):
        plotly_pane2 = pn.pane.Plotly(f1) 
        f1.write_html('season_anime.html',include_plotlyjs='cdn')
     
-       f2=codecs.open("season_anime.html", 'r')
-       html_pane = pn.pane.HTML(f2.read())
+       f1.layout.autosize = True
+       plotly_pane2 = pn.pane.Plotly(f1,config={'responsive': True, 'displaylogo': False }) 
+   
+
+
+       #f2=codecs.open("season_anime.html", 'r')
+      # html_pane = pn.pane.HTML(f2.read())
        
-       return html_pane
+       return plotly_pane2
 
 
 

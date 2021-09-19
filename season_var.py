@@ -247,7 +247,7 @@ def p1(s,s1,s2,s3,s4):
  y1 = round(c['rain'][m1],2)
  # = pn.widgets.DataFrame(c)   
  #print(c)
- f = Figure(figsize=(14,9),dpi = 200)
+ f = Figure(figsize=(12,9),dpi = 200)
  #cw = os.getcwd()
  im1 = Image.open('static/imd_logo.png')
  sz = im1.size
@@ -276,7 +276,7 @@ def p1(s,s1,s2,s3,s4):
  #ax.xaxis.set_major_formatter(date_form)  
    
  #ax.xaxis.set_ticks(np.arange(c.year.min()-1, c.year.max()+2, 10))
- ax.set_xticklabels(ax.get_xticks(), rotation = 45)
+ #ax.set_xticklabels(ax.get_xticks(), rotation = 45)
 
  #c.plot.line('year','rain',ax = ax)
  #extent = ax.get_window_extent().transformed(f.dpi_scale_trans.inverted())
@@ -309,7 +309,7 @@ def p1(s,s1,s2,s3,s4):
 
  #pn.param.ParamMethod.loading_indicator = False
  #ld.value=False         
- return pn.pane.Matplotlib(f,tight=True )
+ return pn.pane.Matplotlib(f)
 
 
 

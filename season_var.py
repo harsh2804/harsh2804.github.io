@@ -159,7 +159,7 @@ al = pn.pane.Alert("Hello")
 
 ld = pn.indicators.LoadingSpinner(width=100,height=100,color='primary',bgcolor='dark')
 
-@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value,cache=True)
+@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 #@asyncio.coroutine
 def p1(s,s1,s2,s3,s4):
  #await asyncio.sleep(2)

@@ -8,6 +8,9 @@ import plotly.express as px
 from plotly.offline import plot
 import plotly.graph_objects as go
 
+
+from diskcache import FanoutCache
+
 import os
 import asyncio
 
@@ -44,6 +47,13 @@ js = {
     
 pn.extension(loading_spinner='dots',loading_color='#00aa41',sizing_mode = 'stretch_width',css_files=css, js_files=js)
 #template = 'bootstrap'
+
+
+EXPIRE = 5 * 60  # 5 minutes
+CACHE_DIRECTORY = "cache"
+
+cache = FanoutCache(directory=CACHE_DIRECTORY)
+
 
 
 
@@ -150,9 +160,9 @@ al = pn.pane.Alert("Hello")
 ld = pn.indicators.LoadingSpinner(width=100,height=100,color='primary',bgcolor='dark')
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
-@asyncio.coroutine
-async def p1(s,s1,s2,s3,s4):
- await asyncio.sleep(2)
+#@asyncio.coroutine
+def p1(s,s1,s2,s3,s4):
+ #await asyncio.sleep(2)
  al.object='welcome to seasonal plot'
  al.alert_type = 'info'
  if(s > s1):
@@ -303,8 +313,8 @@ async def p1(s,s1,s2,s3,s4):
 
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
-async def p2(s,s1,s2,s3,s4):
-        await asyncio.sleep(2)
+def p2(s,s1,s2,s3,s4):
+       # await asyncio.sleep(2)
         if(s > s1):
            return
         elif((s == s1) &  (s2 > s3)):
@@ -465,8 +475,8 @@ async def p2(s,s1,s2,s3,s4):
 
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
-async def p3(s,s1,s2,s3,s4):
-       await asyncio.sleep(2)
+def p3(s,s1,s2,s3,s4):
+      # await asyncio.sleep(2)
        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
 
        a = a[['Column3','Column22','Column18','Column19','Column20','Column21']]
@@ -499,8 +509,8 @@ async def p3(s,s1,s2,s3,s4):
 
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
-async def p4(s,s1,s2,s3,s4):
-       await asyncio.sleep(2)
+def p4(s,s1,s2,s3,s4):
+    #   await asyncio.sleep(2)
        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
 
        a = a[['Column3','Column22','Column18','Column19','Column20','Column21']]

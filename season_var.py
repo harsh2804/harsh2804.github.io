@@ -501,7 +501,8 @@ def p3(s,s1,s2,s3,s4):
        #f.update_yaxes(showgrid= False,visible= False)#range=[min(df3[un])-2,max(df3[un])+2])
        #f.update_xaxes(showgrid= False)#range=[min(df3[un])-2,max(df3[un])+2])
         
-       plotly_pane1 = pn.pane.Plotly(f) 
+       f.layout.autosize = True
+       plotly_pane1 = pn.pane.Plotly(f,config={'responsive': True}) 
        
        
        return plotly_pane1

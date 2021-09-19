@@ -88,7 +88,12 @@ b = a.set_index(['Column3','Column22']).stack().reset_index()
 b.columns = ['year','name','month','rain']
 b.month = b.month.astype(int)
 
-
+im1 = Image.open('static/imd_logo.png')
+sz = im1.size
+sz1 = (int(sz[0]/2), int(sz[1]/2))
+height = im1.size[1]
+width = im1.size[0]
+im1 = np.array(im1).astype(np.float) / 255
 
 title = '## hello'
 m5 = list(b['name'].unique())
@@ -249,12 +254,7 @@ def p1(s,s1,s2,s3,s4):
  #print(c)
  f = Figure(figsize=(12,9),dpi = 200)
  #cw = os.getcwd()
- im1 = Image.open('static/imd_logo.png')
- sz = im1.size
- sz1 = (int(sz[0]/2), int(sz[1]/2))
- height = im1.size[1]
- width = im1.size[0]
- im1 = np.array(im1).astype(np.float) / 255
+ 
  #f.bbox.xmax-width
  plt.style.use('fivethirtyeight')   
  ax =f.subplots()

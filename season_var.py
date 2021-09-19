@@ -549,14 +549,14 @@ def p4(s,s1,s2,s3,s4):
        f1.write_html('season_anime.html',include_plotlyjs='cdn')
     
        f1.layout.autosize = True
-       plotly_pane2 = pn.pane.Plotly(f1,config={'responsive': True, 'displaylogo': False }) 
+       #plotly_pane2 = pn.pane.Plotly(f1,config={'responsive': True, 'displaylogo': False }) 
    
 
 
-       #f2=codecs.open("season_anime.html", 'r')
-      # html_pane = pn.pane.HTML(f2.read())
+       f2=codecs.open("season_anime.html", 'r')
+       html_pane = pn.pane.HTML(f2.read())
        
-       return plotly_pane2
+       return html_pane
 
 
 

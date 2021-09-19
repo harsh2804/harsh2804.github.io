@@ -177,11 +177,13 @@ def p1(s,s1,s2,s3,s4):
     return al
  #pn.param.ParamMethod.loading_indicator = True
  #ld.value=True
+ '''
  a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
  a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)
  b = a.set_index(['Column3','Column22']).stack().reset_index()
  b.columns = ['year','name','month','rain']
  b.month = b.month.astype(int)
+ '''
  c = b.copy()
  c = c[c.name == s4]
  c = c[c.rain >= 0]

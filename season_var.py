@@ -109,7 +109,7 @@ FigureCanvas(f)
 
 
 title = '## hello'
-m5 = list(b['name'].unique())
+
 #m1 = int(b.year.min())
 #m2 = int(b.year.max())
 #m3 = list(range(m1,m2+1))
@@ -127,8 +127,11 @@ bootstrap = pn.template.MaterialTemplate(title = 'Seasonal variation',theme = Da
 #s1 = pn.widgets.Select(name = 'Select1',options =m3)
 #s2 = pn.widgets.Select(name = 'Select2',options =m4)
 #s3 = pn.widgets.Select(name = 'Select3',options =m4)
-s4 = pn.widgets.Select(name = 'subdivision',options =m5,width = 100)
 
+b= getdata() 
+
+m5 = list(b['name'].unique())
+s4 = pn.widgets.Select(name = 'subdivision',options =m5,width = 100)
 k = s4.value
 k1 = b[b.name == k]
 m1 = int(k1.year.min())
@@ -146,6 +149,9 @@ s3 = pn.widgets.Select(name = 'End Month',options =m4,width = 80)
 #s3.jslink(s4,value='value')
 
 #d = pn.widgets.DataFrame(b)  
+
+
+
 
 '''
 @pn.depends(s4.param.value,watch = True)

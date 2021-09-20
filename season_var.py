@@ -138,10 +138,10 @@ m1 = int(k1.year.min())
 m2 = int(k1.year.max())
 m3 = list(range(m1,m2+1))
 m4 = list(k1.month.unique())
-s = pn.widgets.Select(name = 'Start Year',width = 80)#,  options =m3 )
-s1 = pn.widgets.Select(name = 'End Year',width=80)#, options =m3 )
-s2 = pn.widgets.Select(name = 'Start Month',width = 80)#, options =m4  )
-s3 = pn.widgets.Select(name = 'End Month',width = 80)#, options =m4 )
+s = pn.widgets.Select(name = 'Start Year',width = 80,  options =m3 )
+s1 = pn.widgets.Select(name = 'End Year',width=80, options =m3 )
+s2 = pn.widgets.Select(name = 'Start Month',width = 80, options =m4  )
+s3 = pn.widgets.Select(name = 'End Month',width = 80, options =m4 )
 
 #s.jslink(s4,value='value')
 #s1.jslink(s4,value='value')
@@ -149,6 +149,7 @@ s3 = pn.widgets.Select(name = 'End Month',width = 80)#, options =m4 )
 #s3.jslink(s4,value='value')
 
 #d = pn.widgets.DataFrame(b)  
+'''
 def load_data():
     if 'stocks' not in pn.state.cache:
         a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
@@ -175,7 +176,7 @@ def load_data():
     s3.options = m4
     
 pn.state.onload(load_data)
-
+'''
 
 
 '''
@@ -232,11 +233,13 @@ def p1(s,s1,s2,s3,s4):
  b = a.set_index(['Column3','Column22']).stack().reset_index()
  b.columns = ['year','name','month','rain']
  b.month = b.month.astype(int)
- '''
+ 
  if 'stocks' not in pn.state.cache:
         return pn.indicators.LoadingSpinner(value=True)
         time.sleep(0.5)
- c =   pn.state.cache['stocks'] #     getdata()  #      b.copy()
+ 
+ '''
+ c =    getdata()  #      b.copy()
  c = c[c.name == s4]
  c = c[c.rain >= 0]
  

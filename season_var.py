@@ -361,11 +361,40 @@ def p1(s,s1,s2,s3,s4):
  #test_base64 = base64.b64encode(open('assets/imd_logo.png' , 'rb').read()).decode('ascii')
 
  
+ fig.add_annotation(
+        x=x1,
+        y=y1,
+        xref="x",
+        yref="y",
+        text="max="+ str(y1) ,
+        showarrow=True,
+        font=dict(
+            family="Courier New, monospace",
+            size=16,
+            color="#ffffff"
+            ),
+        align="center",
+        arrowhead=2,
+        arrowsize=1,
+        arrowwidth=2,
+        arrowcolor="#636363",
+        ax=20,
+        ay=-30,
+        bordercolor="#c7c7c7",
+        borderwidth=2,
+        borderpad=4,
+        bgcolor="#ff7f0e",
+        opacity=0.8
+        )
+
+
+ '''
  f.add_annotation(x=x1, y=y1,
             text="*highest value",
             showarrow=True,
             arrowhead=1)
 
+ '''
  f.layout.images = [dict(
       source="https://github.com/harsh2804/season-var/tree/main/assets/imd_logo.png" ,
         xref="paper", yref="paper",

@@ -79,7 +79,7 @@ if (document.readyState === "complete") {
 </script>
 """
 
-@nb.jit()
+#@nb.jit()
 def getdata():
  a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
  a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)
@@ -303,7 +303,7 @@ def p1(s,s1,s2,s3,s4):
  y1 = round(c['rain'][m1],2)
  # = pn.widgets.DataFrame(c)   
  #print(c)
- 
+ '''
  f = Figure(figsize=(12,9),dpi = 200)
  #cw = os.getcwd()
  
@@ -340,6 +340,9 @@ def p1(s,s1,s2,s3,s4):
  ax.set_xlim(c.year.min()-1,c.year.max()+2)
  ax.figure.savefig('figure.png')
  #ax.set_xlim(c.year.min()-1,c.year.max()+2)
+ '''
+ f= go.Scatter(x=c['year'], y=c['rain'] ,mode='lines' )
+ 
  l1 = ['mean','50%','std','max']
  k3 = c["rain"].describe()
  df_2 = pd.DataFrame({'Values': k3})
@@ -365,7 +368,7 @@ def p1(s,s1,s2,s3,s4):
 
  #pn.param.ParamMethod.loading_indicator = False
  #ld.value=False         
- return pn.pane.Matplotlib(f)
+ return f#pn.pane.Matplotlib(f)
 
 
 

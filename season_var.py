@@ -356,9 +356,8 @@ def p1(s,s1,s2,s3,s4):
  f.add_layout_image(
     dict(
         source="static/imd_logo.png",
-        xref="paper", yref="paper",
         x=1, y=1.05,
-        sizex=0.2, sizey=0.2,
+        #sizex=0.2, sizey=0.2,
         xanchor="right", yanchor="bottom"
     )
 )

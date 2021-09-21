@@ -321,8 +321,8 @@ def p1(s,s1,s2,s3,s4):
  #Title: Seasonal variation (Jan-Mar) of rainfall over Bihar for the period 1901-2020
  f.suptitle('Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '\n for the period ' + str(s) + '-'  + str(s1) , fontsize=20)
  
- c.plot.line('year', 'rain', ax=ax)
- #ax.plot(c.year,c.rain,marker = 'o')
+ #c.plot.line('year', 'rain', ax=ax)
+ ax.plot(c.year,c.rain,marker = 'o')
  ax.set_xlabel('year')
  ax.set_ylabel('rainfall(mm)')
  #ax.quiver(x1,y1,1,1,color='red')      
@@ -697,7 +697,7 @@ gsp[1,2:3] = p2
 
 #p6=asyncio.get_event_loop().run_until_complete(p1(s, s1, s2, s3, s4)) 
 
-w1 = pn.Column(pn.Card(file_download,pn.panel(p1,loading_indicator=True)))
+w1 = pn.Column(pn.Card(file_download,pn.panel(p1,loading_indicator=False)))
 w2 = pn.Card(pn.Row(p3,p4),sizing_mode = 'stretch_width')
 w3 =  pn.Card(pn.Row(table_with_export_buttons,p2),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
 w4 = pn.Column(w1,w2,w3)

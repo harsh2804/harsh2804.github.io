@@ -79,6 +79,7 @@ if (document.readyState === "complete") {
 </script>
 """
 
+@nb.jit()
 def getdata():
  a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
  a = a.drop(['Column2','Column4','Column17','Column18','Column19','Column20','Column21'],axis = 1)

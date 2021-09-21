@@ -713,10 +713,20 @@ button = pn.widgets.Button(name='Click me for Instructions', button_type='primar
 button.on_click(btt)
 box2 = pn.WidgetBox('# Instructions', button,bb, video)
 
+
+def btt1(event):
+    #bb.voice= bb.voices[2]    
+    bb1.speak = True
+    bb1.volume = 1
+    bb1.pitch = 1
+    bb1.rate = 1
+    bb1.lang = 'en-US'
+
+
 value4= 'Dynamic charts given below visualizes variation of rainfall of subdivision with seasons in selected period . Here JF, MAM, JJAS, OND corresponds to different seasons in a year'
 bb1 = pn.widgets.TextToSpeech(name = "Speech Synthesis",value = value4,auto_speak = False)
-button1 = pn.widgets.Button(name='Instructions', button_type='primary')
-button1.on_click(btt)
+button1 = pn.widgets.Button(name='Instructions', button_type='secondary')
+button1.on_click(btt1)
 box3 = pn.WidgetBox('# Description', button1,bb1)
 
 

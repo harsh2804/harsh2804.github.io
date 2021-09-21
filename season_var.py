@@ -7,7 +7,7 @@ from time import strptime
 import plotly.express as px
 from plotly.offline import plot
 import plotly.graph_objects as go
-
+import base64
 
 #from diskcache import FanoutCache
 
@@ -358,8 +358,10 @@ def p1(s,s1,s2,s3,s4):
                    xaxis_title='Year',
                    yaxis_title='Rainfall (mm)')
 
+ test_base64 = base64.b64encode(open('assets/imd_logo.png' , 'rb').read()).decode('ascii')
+
  f.layout.images = [dict(
-      source="assets/imd_logo.png" ,
+      source="data:image/png;base64,{}'.format(test_base64)" ,
         xref="paper", yref="paper",
        x=0.1, y=1.05,
        sizex=0.4, sizey=0.4,

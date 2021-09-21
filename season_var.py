@@ -717,7 +717,7 @@ box2 = pn.WidgetBox('# Instructions', button,bb, video)
 
 
 
-
+'''
 bootstrap.sidebar.append(s4)
 bootstrap.sidebar.append(s)
 bootstrap.sidebar.append(s1)
@@ -753,7 +753,7 @@ gsp[0,2:3] =  gif_pane
 gsp[1,0:1] = table_with_export_buttons
 gsp[1,2:3] = p2
 
-
+'''
 #p6=asyncio.get_event_loop().run_until_complete(p1(s, s1, s2, s3, s4)) 
 
 #w1 = pn.Column(pn.Card(file_download, plotly_pane7,  pn.panel(p1,loading_indicator=False)))

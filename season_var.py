@@ -320,7 +320,9 @@ def p1(s,s1,s2,s3,s4):
  m2 = db2.strftime("%b") 
  #Title: Seasonal variation (Jan-Mar) of rainfall over Bihar for the period 1901-2020
  f.suptitle('Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '\n for the period ' + str(s) + '-'  + str(s1) , fontsize=20)
- ax.plot(c.year,c.rain,marker = 'o')
+ 
+ c.plot.line('year', 'rain', ax=ax)
+ #ax.plot(c.year,c.rain,marker = 'o')
  ax.set_xlabel('year')
  ax.set_ylabel('rainfall(mm)')
  #ax.quiver(x1,y1,1,1,color='red')      

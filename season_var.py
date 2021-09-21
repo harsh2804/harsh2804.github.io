@@ -652,7 +652,10 @@ def p4(s4):#,s1,s2,s3,s4):
        f1.update_layout(modebar_remove=['toImageButtonOptions','zoom', 'pan','select', 'zoomIn', 'zoomOut','lasso2d','sendDataToCloud','toImage'])
        plotly_pane2 = pn.pane.Plotly(f1) 
        f1.layout.autosize = True
-       f1.write_html('season_anime.html',include_plotlyjs='cdn')
+       plot(f1, filename= 'season_anime.html' , show_link=False,include_plotlyjs='cdn', 
+       config=dict(displaylogo=False,
+                 modeBarButtonsToRemove=['sendDataToCloud']))
+       #f1.write_html('season_anime.html',include_plotlyjs='cdn')
     
        
        #plotly_pane2 = pn.pane.Plotly(f1,config={'responsive': True, 'displaylogo': False }) 

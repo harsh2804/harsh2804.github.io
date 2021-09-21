@@ -211,6 +211,7 @@ al = pn.pane.Alert("Hello")
 ld = pn.indicators.LoadingSpinner(width=100,height=100,color='primary',bgcolor='dark')
 
 plotly_pane7 = pn.pane.Plotly()
+plotly_pane8 = pn.pane.Plotly()
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 #@asyncio.coroutine
@@ -561,12 +562,14 @@ def p2(s2,s3,s4):#,s3,s4):
         f.update_xaxes(showgrid= False)#range=[min(df3[un])-2,max(df3[un])+2])
         
         f.layout.autosize = True
-        plotly_pane = pn.pane.Plotly(f,config={'responsive': True, 'displaylogo': False }) 
+        #plotly_pane = pn.pane.Plotly(f,config={'responsive': True, 'displaylogo': False }) 
        
+        plotly_pane8.object = f
+        plotly_pane8.config={'responsive': True, 'displaylogo': False }
 
         #plotly_pane = pn.pane.Plotly(f) 
        
-        return plotly_pane
+        #return plotly_pane
 
      
 
@@ -738,7 +741,7 @@ gsp[1,2:3] = p2
 w1 = pn.Card(p1,plotly_pane7)
 
 w2 = pn.Card(pn.Row(p3,p4),sizing_mode = 'stretch_width')
-w3 =  pn.Card(pn.Row(table_with_export_buttons,p2),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
+w3 =  pn.Card(pn.Row(table_with_export_buttons, plotly_pane8,p2),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
 w4 = pn.Column(w1,w2,w3)
 
 

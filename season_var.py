@@ -725,7 +725,7 @@ def btt1(event):
 
 value4= 'Dynamic charts given below visualizes variation of rainfall of subdivision with seasons in selected period . Here JF, MAM, JJAS, OND corresponds to different seasons in a year'
 bb1 = pn.widgets.TextToSpeech(name = "Speech Synthesis",value = value4,auto_speak = False)
-button1 = pn.widgets.Button(name='Instructions', button_type='secondary')
+button1 = pn.widgets.Button(name='Instructions', button_type='success')
 button1.on_click(btt1)
 box3 = pn.WidgetBox('# Description', button1,bb1)
 

@@ -341,7 +341,7 @@ def p1(s,s1,s2,s3,s4):
  ax.figure.savefig('figure.png')
  #ax.set_xlim(c.year.min()-1,c.year.max()+2)
  '''
- f= go.Scatter(x=c['year'], y=c['rain'] ,mode='lines' )
+ f=   go.Figure(go.Scatter(x=c['year'], y=c['rain'] ,mode='lines' )) 
  db1 = datetime.datetime.strptime(str(s2),"%m")
  m1 = db1.strftime("%b")
  db2 = datetime.datetime.strptime(str(s3),"%m")

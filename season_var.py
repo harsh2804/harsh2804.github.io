@@ -210,6 +210,8 @@ al = pn.pane.Alert("Hello")
 
 ld = pn.indicators.LoadingSpinner(width=100,height=100,color='primary',bgcolor='dark')
 
+plotly_pane7 = pn.pane.Plotly()
+
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 #@asyncio.coroutine
 def p1(s,s1,s2,s3,s4):
@@ -352,9 +354,9 @@ def p1(s,s1,s2,s3,s4):
                    yaxis_title='Rainfall (mm)')
 
  f.layout.autosize = True
- f = pn.pane.Plotly(f,config={'responsive': True, 'displaylogo': False }) 
+ #f = pn.pane.Plotly(f,config={'responsive': True, 'displaylogo': False }) 
        
-
+ plotly_pane7.object = f
  l1 = ['mean','50%','std','max']
  k3 = c["rain"].describe()
  df_2 = pd.DataFrame({'Values': k3})
@@ -380,7 +382,7 @@ def p1(s,s1,s2,s3,s4):
 
  #pn.param.ParamMethod.loading_indicator = False
  #ld.value=False         
- return f#pn.pane.Matplotlib(f)
+ #return f#pn.pane.Matplotlib(f)
 
 
 

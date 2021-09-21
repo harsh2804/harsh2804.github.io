@@ -713,7 +713,11 @@ button = pn.widgets.Button(name='Click me for Instructions', button_type='primar
 button.on_click(btt)
 box2 = pn.WidgetBox('# Instructions', button,bb, video)
 
-
+value4= 'Dynamic charts given below visualizes variation of rainfall of subdivision with seasons in selected period . Here JF, MAM, JJAS, OND corresponds to different seasons in a year'
+bb1 = pn.widgets.TextToSpeech(name = "Speech Synthesis",value = value4,auto_speak = False)
+button1 = pn.widgets.Button(name='Instructions', button_type='primary')
+button1.on_click(btt)
+box3 = pn.WidgetBox('# Description', button1,bb1)
 
 
 
@@ -761,7 +765,7 @@ w1 = pn.Card(plotly_pane7)
 
 w2 = pn.Card(pn.Row(  plotly_pane5,plotly_pane6 ),sizing_mode = 'stretch_width')
 w3 =  pn.Card(pn.Row(table_with_export_buttons, plotly_pane8),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
-w4 = pn.Column(w1,w2,w3,p2,p1,p3, p4)
+w4 = pn.Column(w1,  box3, w2,w3,p2,p1,p3, p4)
 
 
 

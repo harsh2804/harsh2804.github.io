@@ -342,7 +342,17 @@ def p1(s,s1,s2,s3,s4):
  #ax.set_xlim(c.year.min()-1,c.year.max()+2)
  '''
  f= go.Scatter(x=c['year'], y=c['rain'] ,mode='lines' )
- 
+ db1 = datetime.datetime.strptime(str(s2),"%m")
+ m1 = db1.strftime("%b")
+ db2 = datetime.datetime.strptime(str(s3),"%m")
+ m2 = db2.strftime("%b")
+ title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '\n for the period ' + str(s) + '-'  + str(s1)
+ f.update_layout(title=title,
+                   xaxis_title='Year',
+                   yaxis_title='Rainfall (mm)')
+
+
+
  l1 = ['mean','50%','std','max']
  k3 = c["rain"].describe()
  df_2 = pd.DataFrame({'Values': k3})

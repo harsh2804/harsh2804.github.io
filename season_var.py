@@ -396,6 +396,10 @@ def p1(s,s1,s2,s3,s4):
     
  html = df_2.to_html(classes=['example2', 'panel-df'])
  table_with_export_buttons.object = html+script
+ p2(s2,s3,s4)
+ p3(s4)
+ p4(s4)
+
  #def get_csv():
  #  return BytesIO(c.to_csv().encode())   
  
@@ -407,12 +411,13 @@ def p1(s,s1,s2,s3,s4):
  #pn.param.ParamMethod.loading_indicator = False
  #ld.value=False         
  #return f#pn.pane.Matplotlib(f)
+ 
 
 
 
 
 
-@pn.depends(s2.param.value,s3.param.value,s4.param.value)#,s3.param.value,s4.param.value)
+#@pn.depends(s2.param.value,s3.param.value,s4.param.value)#,s3.param.value,s4.param.value)
 def p2(s2,s3,s4):#,s3,s4):
        # await asyncio.sleep(2)
         #if(s > s1):
@@ -580,7 +585,7 @@ def p2(s2,s3,s4):#,s3,s4):
 
 
 
-@pn.depends(s4.param.value)#,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
+#@pn.depends(s4.param.value)#,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 def p3(s4): #,s1,s2,s3,s4):
       # await asyncio.sleep(2)
        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
@@ -620,7 +625,7 @@ def p3(s4): #,s1,s2,s3,s4):
 
 
 
-@pn.depends(s4.param.value)#,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
+#@pn.depends(s4.param.value)#,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 def p4(s4):#,s1,s2,s3,s4):
     #   await asyncio.sleep(2)
        a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')
@@ -756,7 +761,7 @@ w1 = pn.Card(plotly_pane7)
 
 w2 = pn.Card(pn.Row(  plotly_pane5,plotly_pane6 ),sizing_mode = 'stretch_width')
 w3 =  pn.Card(pn.Row(table_with_export_buttons, plotly_pane8),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
-w4 = pn.Column(w1,w2,w3,p2,p1,p3, p4)
+w4 = pn.Column(w1,w2,w3,p1)#,p1,p3, p4)
 
 
 

@@ -45,7 +45,7 @@ js = {
     'html5buttons': 'https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js',
 }
     
-pn.extension(loading_spinner='dots',loading_color='#00aa41',sizing_mode = 'stretch_width',css_files=css, js_files=js)
+pn.extension('plotly' ,loading_spinner='dots',loading_color='#00aa41',sizing_mode = 'stretch_width',css_files=css, js_files=js)
 #template = 'bootstrap'
 
 

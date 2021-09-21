@@ -213,6 +213,10 @@ ld = pn.indicators.LoadingSpinner(width=100,height=100,color='primary',bgcolor='
 plotly_pane7 = pn.pane.Plotly()
 plotly_pane8 = pn.pane.Plotly()
 
+
+plotly_pane5 = pn.pane.Plotly()
+plotly_pane6 = pn.pane.HTML()
+
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
 #@asyncio.coroutine
 def p1(s,s1,s2,s3,s4):
@@ -602,10 +606,15 @@ def p3(s4): #,s1,s2,s3,s4):
        #f.update_xaxes(showgrid= False)#range=[min(df3[un])-2,max(df3[un])+2])
         
        f.layout.autosize = True
-       plotly_pane1 = pn.pane.Plotly(f,config={'responsive': True, 'displaylogo': False }) 
+
+       plotly_pane5.object = f
+       plotly_pane5.config={'responsive': True, 'displaylogo': False }
+
+
+       #plotly_pane1 = pn.pane.Plotly(f,config={'responsive': True, 'displaylogo': False }) 
        
        
-       return plotly_pane1
+       #return plotly_pane1
 
 
 
@@ -642,17 +651,19 @@ def p4(s4):#,s1,s2,s3,s4):
        #f.update_layout(xaxis = dict(rangeslider = dict(visible=True),type='date'),template='plotly_white')
        f1.update_layout(modebar_remove=['toImageButtonOptions','zoom', 'pan','select', 'zoomIn', 'zoomOut','lasso2d','sendDataToCloud','toImage'])
        plotly_pane2 = pn.pane.Plotly(f1) 
+       f1.layout.autosize = True
        f1.write_html('season_anime.html',include_plotlyjs='cdn')
     
-       f1.layout.autosize = True
+       
        #plotly_pane2 = pn.pane.Plotly(f1,config={'responsive': True, 'displaylogo': False }) 
    
 
 
        f2=codecs.open("season_anime.html", 'r')
-       html_pane = pn.pane.HTML(f2.read())
+       plotly_pane6.object = f2.read()
+      # html_pane = pn.pane.HTML(f2.read())
        
-       return html_pane
+      # return html_pane
 
 
 
@@ -740,9 +751,9 @@ gsp[1,2:3] = p2
 #w1 = pn.Column(pn.Card(file_download, plotly_pane7,  pn.panel(p1,loading_indicator=False)))
 w1 = pn.Card(plotly_pane7)
 
-w2 = pn.Card(pn.Row(p3,p4),sizing_mode = 'stretch_width')
+w2 = pn.Card(pn.Row(  plotly_pane5,plotly_pane6 ),sizing_mode = 'stretch_width')
 w3 =  pn.Card(pn.Row(table_with_export_buttons, plotly_pane8),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
-w4 = pn.Column(w1,w2,w3,p2,p1)
+w4 = pn.Column(w1,w2,w3,p2,p1,p3, p4)
 
 
 

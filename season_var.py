@@ -309,9 +309,10 @@ def p1(s,s1,s2,s3,s4):
  #f.bbox.xmax-width
  plt.style.use('fivethirtyeight')   
  ax =f.subplots()
+ FigureCanvas(f)
  #print(height)      
  ax.figure.figimage(im1, f.bbox.xmax-width, f.bbox.ymax-height)      
- FigureCanvas(f)
+ 
  
  db1 = datetime.datetime.strptime(str(s2),"%m")
  m1 = db1.strftime("%b")
@@ -323,7 +324,7 @@ def p1(s,s1,s2,s3,s4):
  ax.set_xlabel('year')
  ax.set_ylabel('rainfall(mm)')
  #ax.quiver(x1,y1,1,1,color='red')      
- ax.text(x1,y1,'max value->' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
+ ax.text(x1,y1,'*max-->' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
  #date_form = DateFormatter("%Y")
  #ax.xaxis.set_major_formatter(date_form)  
    

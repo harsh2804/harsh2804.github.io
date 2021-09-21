@@ -741,8 +741,8 @@ gsp[1,2:3] = p2
 w1 = pn.Card(p1,plotly_pane7)
 
 w2 = pn.Card(pn.Row(p3,p4),sizing_mode = 'stretch_width')
-w3 =  pn.Card(pn.Row(table_with_export_buttons, plotly_pane8,p2),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
-w4 = pn.Column(w1,w2,w3)
+w3 =  pn.Card(pn.Row(table_with_export_buttons, plotly_pane8),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
+w4 = pn.Column(w1,w2,w3,p2)
 
 
 

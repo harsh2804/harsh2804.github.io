@@ -368,6 +368,7 @@ def p1(s,s1,s2,s3,s4):
  #f = pn.pane.Plotly(f,config={'responsive': True, 'displaylogo': False }) 
        
  plotly_pane7.object = f
+ plotly_pane7.config={'responsive': True, 'displaylogo': False }
  l1 = ['mean','50%','std','max']
  k3 = c["rain"].describe()
  df_2 = pd.DataFrame({'Values': k3})

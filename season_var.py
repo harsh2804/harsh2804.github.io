@@ -353,13 +353,13 @@ def p1(s,s1,s2,s3,s4):
                    xaxis_title='Year',
                    yaxis_title='Rainfall (mm)')
 
- f.layout.images = [dict(
-       source="static/imd_logo.png" ,
-        xref="paper", yref="paper",
-        x=0.1, y=1.05,
-        sizex=0.4, sizey=0.4,
-        xanchor="center", yanchor="bottom"
-      )]
+ #f.layout.images = [dict(
+#       source="static/imd_logo.png" ,
+#        xref="paper", yref="paper",
+ #       x=0.1, y=1.05,
+ #       sizex=0.4, sizey=0.4,
+  #      xanchor="center", yanchor="bottom"
+  #    )]
 
 #f.add_layout_image(
 #    dict(

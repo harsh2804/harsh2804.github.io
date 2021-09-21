@@ -360,6 +360,12 @@ def p1(s,s1,s2,s3,s4):
 
  #test_base64 = base64.b64encode(open('assets/imd_logo.png' , 'rb').read()).decode('ascii')
 
+ 
+ f.add_annotation(x=x1, y=y1,
+            text="*highest value",
+            showarrow=True,
+            arrowhead=1)
+
  f.layout.images = [dict(
       source="https://github.com/harsh2804/season-var/tree/main/assets/imd_logo.png" ,
         xref="paper", yref="paper",

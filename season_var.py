@@ -358,10 +358,10 @@ def p1(s,s1,s2,s3,s4):
                    xaxis_title='Year',
                    yaxis_title='Rainfall (mm)')
 
- test_base64 = base64.b64encode(open('assets/imd_logo.png' , 'rb').read()).decode('ascii')
+ #test_base64 = base64.b64encode(open('assets/imd_logo.png' , 'rb').read()).decode('ascii')
 
  f.layout.images = [dict(
-      source="data:image/png;base64,{}'.format(test_base64)" ,
+      source="https://github.com/harsh2804/season-var/assets/imd_logo.png" ,
         xref="paper", yref="paper",
        x=0.1, y=1.05,
        sizex=0.4, sizey=0.4,

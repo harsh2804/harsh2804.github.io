@@ -353,7 +353,7 @@ def p1(s,s1,s2,s3,s4):
  m1 = db1.strftime("%b")
  db2 = datetime.datetime.strptime(str(s3),"%m")
  m2 = db2.strftime("%b")
- title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '\n for the period ' + str(s) + '-'  + str(s1)
+ title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
  f.update_layout(title=title,
                    xaxis_title='Year',
                    yaxis_title='Rainfall (mm)')
@@ -398,8 +398,8 @@ def p1(s,s1,s2,s3,s4):
  f.layout.images = [dict(
       source="https://github.com/harsh2804/season-var/tree/main/assets/imd_logo.png" ,
         xref="paper", yref="paper",
-       x=0.1, y=1.05,
-       sizex=0.4, sizey=0.4,
+       x=0.5, y=0.5,
+       sizex=0.5, sizey=0.5,
       xanchor="center", yanchor="bottom"
       )]
 

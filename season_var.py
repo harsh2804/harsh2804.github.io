@@ -273,7 +273,7 @@ def p1(s,s1,s2,s3,s4,radio_group):
      c = c[c.month == s2]
      c = c.reset_index()
  elif((radio_group == 'Month-Month')):
-     c = c[(c.month >= s2) & (c.month <= s3)]
+     #c = c[(c.month >= s2) & (c.month <= s3)]
      #c = c.set_index('dates').resample('Y').sum()
      #c.year  = c.index.year
      #c = c.replace(0,np.nan)
@@ -285,7 +285,7 @@ def p1(s,s1,s2,s3,s4,radio_group):
      c = c.replace(0,np.nan)
      c = c.reset_index()
         
- elif((diff < 0) & (radio_group == 'Seasonal')):
+ elif((diff <= 0) & (radio_group == 'Seasonal')):
      j1 = s2
      j2 = s3 +12
      j3 = list(range(j1,j2+1))

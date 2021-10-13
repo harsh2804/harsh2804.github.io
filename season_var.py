@@ -354,7 +354,7 @@ def p1(s,s1,s2,s3,s4):
  db2 = datetime.datetime.strptime(str(s3),"%m")
  m2 = db2.strftime("%b")
  title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
- f.update_layout(title=title,title_x=0.5,
+ f.update_layout(title= '<b>'+ title + '</b>',title_x=0.5,
                    xaxis_title='Year',
                    yaxis_title='Rainfall (mm)')
 
@@ -600,8 +600,8 @@ def p2(s2,s3,s4):#,s3,s4):
         }
         #f = px.bar(df3, x="status" ,y=un,color='status',orientation='v',title=title + un,barmode = 'stack', hover_data=['Year'],template='plotly_white')#,pattern_shape=un)
         df3 = df3.reset_index()
-        f = px.funnel(df3, y=un, x='Year')      
-        #f =px.sunburst(df3,path=['status', 'rank'], values=un,hover_data=['Year'],template='simple_white',color = un)
+        #f = px.funnel(df3, y=un, x='Year')      
+        f =px.sunburst(df3,path=['status', 'rank'], values=un,hover_data=['Year'],template='simple_white',color = un)
         f.update_layout(title='<b>'+title + un+'</b>',title_x=0.5)
         f.update_layout(modebar_remove=['toImageButtonOptions','zoom', 'pan','select', 'zoomIn', 'zoomOut','lasso2d','sendDataToCloud','toImage']
          )

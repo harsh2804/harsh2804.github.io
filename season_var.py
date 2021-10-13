@@ -816,7 +816,7 @@ w4 = pn.Column(w1,  box3, w2,w3,p2,p1,p3, p4)
 
 
 
-pn.template.FastListTemplate(header=pn.panel('static/imd_logo.png',height=40),   title="O/o Climate Research and services, IMD Pune", 
+pn.template.FastListTemplate(   title="O/o Climate Research and services, IMD Pune",  header=pn.panel('static/imd_logo.png',height=60),
                             sidebar = [box2,al,s4,s,s1,s2,s3],  
                             main =["           Instruction: here you will be able to visualise the **seasonal variation of rainfall** for the selected sub division and selected period.",
                                    w4]).servable();

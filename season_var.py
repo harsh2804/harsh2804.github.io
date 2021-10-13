@@ -222,10 +222,24 @@ radio_group = pn.widgets.RadioButtonGroup(
     name='Radio Button Group', options=['Seasonal','Monthly', 'Month-Month'], button_type='success',value='Seasonal')
 
 
+s5= pn.widgets.Select(name = 'Month',width = 80, options =m4 ,value = 1, precedence= -1  )
 
-@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value,radio_group.param.value,watch=True )
+
+@pn.depends(radio_group.param.value,watch = True)
+def p2(radio_group):
+ if(radio_group == 'Monthly') :
+   s2.precedence= -1
+   s3.precedence= -1
+   s5.precedence= 1
+ else:
+   s2.precedence= 1
+   s3.precedence= 1
+   s5.precedence= -1
+
+
+@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value, s5.param.value ,radio_group.param.value,watch=True )
 #@asyncio.coroutine
-def p1(s,s1,s2,s3,s4,radio_group):
+def p1(s,s1,s2,s3,s4,s5,radio_group):
  #await asyncio.sleep(2)
  al.object='welcome to seasonal plot'
  al.alert_type = 'info'
@@ -275,7 +289,7 @@ def p1(s,s1,s2,s3,s4,radio_group):
  c = c[(c.dates >= l1) & (c.dates <= l2)]
  diff = s3 - s2  
  if((diff == 0) & (radio_group == 'Monthly')):
-     c = c[c.month == s2]
+     c = c[c.month == s5]
      title= 'Monthly variation (' + str(m1)  +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      #s2.value = s2
      #s3.value = s2

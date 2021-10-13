@@ -217,9 +217,15 @@ plotly_pane8 = pn.pane.Plotly()
 plotly_pane5 = pn.pane.Plotly()
 plotly_pane6 = pn.pane.HTML()
 
-@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value)
+
+radio_group = pn.widgets.RadioButtonGroup(
+    name='Radio Button Group', options=['Monthly', 'Month-Month'], button_type='success',value='Monthly')
+
+
+
+@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value,radio_group.param.value)
 #@asyncio.coroutine
-def p1(s,s1,s2,s3,s4):
+def p1(s,s1,s2,s3,s4,radio_group):
  #await asyncio.sleep(2)
  al.object='welcome to seasonal plot'
  al.alert_type = 'info'
@@ -263,10 +269,10 @@ def p1(s,s1,s2,s3,s4):
 
  c = c[(c.dates >= l1) & (c.dates <= l2)]
  diff = s3 - s2  
- if(diff == 0):
+ if((diff == 0) & (radio_group == 'Monthly')):
      c = c[c.month == s2]
      c = c.reset_index()
- elif(diff > 0):
+ elif(diff >= 0):
      c = c[(c.month >= s2) & (c.month <= s3)]
      c = c.set_index('dates').resample('Y').sum()
      c.year  = c.index.year
@@ -830,7 +836,7 @@ w4 = pn.Column(w1,  box3, w2,w3,p2,p1,p3, p4)
 
 
 pn.template.FastListTemplate(   title="O/o Climate Research and services, IMD Pune",  header=pn.panel('static/imd_logo.png',height=60),
-                            sidebar = [box2,al,s4,s,s1,s2,s3],  
+                            sidebar = [radio_group,box2,al,s4,s,s1,s2,s3],  
                             main =[w4]).servable();
 
 

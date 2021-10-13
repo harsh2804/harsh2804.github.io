@@ -272,13 +272,13 @@ def p1(s,s1,s2,s3,s4,radio_group):
  if((diff == 0) & (radio_group == 'Monthly')):
      c = c[c.month == s2]
      c = c.reset_index()
- elif(diff >= 0):
+ elif(diff > 0):
      c = c[(c.month >= s2) & (c.month <= s3)]
      c = c.set_index('dates').resample('Y').sum()
      c.year  = c.index.year
      c = c.reset_index()
         
- elif(diff < 0):
+ elif(diff <= 0):
      j1 = s2
      j2 = s3 +12
      j3 = list(range(j1,j2+1))

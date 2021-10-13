@@ -276,6 +276,7 @@ def p1(s,s1,s2,s3,s4,radio_group):
      c = c[(c.month >= s2) & (c.month <= s3)]
      c = c.set_index('dates').resample('Y').sum()
      c.year  = c.index.year
+     c = c.replace(0,np.nan)
      c = c.reset_index()
         
  elif(diff <= 0):

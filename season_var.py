@@ -285,13 +285,15 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  m1 = db1.strftime("%b")
  db2 = datetime.datetime.strptime(str(s3),"%m")
  m2 = db2.strftime("%b")
+ db3 = datetime.datetime.strptime(str(s5),"%m")
+ m3 = db3.strftime("%b")
  title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
  
  c = c[(c.dates >= l1) & (c.dates <= l2)]
  diff = s3 - s2  
  if((radio_group == 'Monthly')):
      c = c[c.month == s5]
-     title= 'Monthly variation (' + str(m1)  +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
+     title= 'Monthly variation (' + str(m3)  +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      #s2.value = s2
      #s3.value = s2
      #s2.param.precedence=-1

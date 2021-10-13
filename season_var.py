@@ -226,7 +226,7 @@ s5= pn.widgets.Select(name = 'Month',width = 80, options =m4 ,value = 1, precede
 
 
 @pn.depends(radio_group.param.value,watch = True)
-def p2(radio_group):
+def p5(radio_group):
  if(radio_group == 'Monthly') :
    s2.precedence= -1
    s3.precedence= -1
@@ -865,7 +865,7 @@ w1 = pn.Card(plotly_pane7)
 
 w2 = pn.Card(pn.Row(  plotly_pane5,plotly_pane6 ),sizing_mode = 'stretch_width')
 w3 =  pn.Card(pn.Row(table_with_export_buttons, plotly_pane8),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
-w4 = pn.Column(w1,  box3, w2,w3,p2,p1,p3, p4)
+w4 = pn.Column(w1,  box3, w2,w3,p2,p1,p3, p4, p5)
 
 
 

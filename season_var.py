@@ -219,7 +219,7 @@ plotly_pane6 = pn.pane.HTML()
 
 
 radio_group = pn.widgets.RadioButtonGroup(
-    name='Radio Button Group', options=['Seasonal','Monthly', 'Month-Month'], button_type='success',value='Seasonal')
+    name='Radio Button Group', options=['Seasonal','Yearly',  'Monthly', 'Month-Month'], button_type='success',value='Seasonal')
 
 
 s5= pn.widgets.Select(name = 'Month',width = 80, options =m4 ,value = 1, precedence= -1  )
@@ -305,7 +305,14 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
      #c.year  = c.index.year
      #c = c.replace(0,np.nan)
      title= 'Month to Month variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
-     c = c.reset_index()      
+     c = c.reset_index() 
+ elif((radio_group == 'Yearly')):
+     c = c[(c.month >= 1) & (c.month <= 12)]
+     c = c.set_index('dates').resample('Y').sum()
+     c.year  = c.index.year
+     c = c.replace(0,np.nan)
+     title= 'Yearly variation ' +   ' of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
+     c = c.reset_index()
  elif((diff > 0) & (radio_group == 'Seasonal')):
      c = c[(c.month >= s2) & (c.month <= s3)]
      c = c.set_index('dates').resample('Y').sum()

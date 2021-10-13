@@ -222,7 +222,17 @@ radio_group = pn.widgets.RadioButtonGroup(
     name='Radio Button Group', options=['Seasonal','Yearly',  'Monthly', 'Month-Month'], button_type='success',value='Seasonal')
 
 
-s5= pn.widgets.Select(name = 'Month',width = 80, options =m4 ,value = 1, precedence= -1  )
+
+months_choices = []
+dd={}
+for i in range(1,13):
+    db1 = datetime.datetime.strptime(str(i),"%m")
+    m1 = db1.strftime("%B")
+    months_choices.append(m1)
+    dd[m1]= i
+
+
+s5= pn.widgets.Select(name = 'Month',width = 80, options = months_choices ,value = months_choices[0]   , precedence= -1  )
 
 
 @pn.depends(radio_group.param.value,watch = True)
@@ -298,15 +308,16 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  m1 = db1.strftime("%b")
  db2 = datetime.datetime.strptime(str(s3),"%m")
  m2 = db2.strftime("%b")
- db3 = datetime.datetime.strptime(str(s5),"%m")
- m3 = db3.strftime("%b")
+ #db3 = datetime.datetime.strptime(str(s5),"%m")
+ #m3 = db3.strftime("%b")
  title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
  
  c = c[(c.dates >= l1) & (c.dates <= l2)]
  diff = s3 - s2  
  if((radio_group == 'Monthly')):
-     c = c[c.month == s5]
-     title= 'Monthly variation (' + str(m3)  +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
+     mm = dd[s5]
+     c = c[c.month == mm]
+     title= 'Monthly variation (' + str(s5)  +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      #s2.value = s2
      #s3.value = s2
      #s2.param.precedence=-1

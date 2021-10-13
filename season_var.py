@@ -139,10 +139,10 @@ m1 = int(k1.year.min())
 m2 = int(k1.year.max())
 m3 = list(range(m1,m2+1))
 m4 = list(k1.month.unique())
-s = pn.widgets.Select(name = 'Start Year',width = 80,  options =m3 ,value = m1)
-s1 = pn.widgets.Select(name = 'End Year',width=80, options =m3 ,value = m2)
-s2 = pn.widgets.Select(name = 'Start Month',width = 80, options =m4 ,value = 1 )
-s3 = pn.widgets.Select(name = 'End Month',width = 80, options =m4 ,value = 12)
+s = pn.widgets.Select(name = 'Start Year',width = 80,  options =m3 ,value = m1, precedence=1  )
+s1 = pn.widgets.Select(name = 'End Year',width=80, options =m3 ,value = m2,  precedence=1 )
+s2 = pn.widgets.Select(name = 'Start Month',width = 80, options =m4 ,value = 1 , precedence=1 )
+s3 = pn.widgets.Select(name = 'End Month',width = 80, options =m4 ,value = 12, precedence=1  )
 
 #s.jslink(s4,value='value')
 #s1.jslink(s4,value='value')
@@ -279,6 +279,8 @@ def p1(s,s1,s2,s3,s4,radio_group):
      title= 'Monthly variation (' + str(m1)  +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      #s2.value = s2
      #s3.value = s2
+     #s2.param.precedence=-1
+     #s3.param.precedence=-1
      c = c.reset_index()
  elif((radio_group == 'Month-Month')):
      #c = c[(c.month >= s2) & (c.month <= s3)]

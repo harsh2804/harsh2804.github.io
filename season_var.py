@@ -351,7 +351,7 @@ def p1(s,s1,s2,s3,s4):
        
 
        
- f=   go.Figure(go.Scatter(x=c['year'], y=c['rain'] ,mode='lines+markers' ),layout=layout)
+ f=   go.Figure(go.Scatter(x=c['year'], y=c['rain'] ,mode='lines+markers' ))
  f.layout.images = [dict(
         source="static/imd_logo.png",
         xref="paper", yref="paper",

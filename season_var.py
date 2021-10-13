@@ -267,25 +267,34 @@ def p1(s,s1,s2,s3,s4,radio_group):
   
  c['dates'] = pd.to_datetime(c.year.astype(str) + '-' + c.month.astype(str) + '-01')
 
+ db1 = datetime.datetime.strptime(str(s2),"%m")
+ m1 = db1.strftime("%b")
+ db2 = datetime.datetime.strptime(str(s3),"%m")
+ m2 = db2.strftime("%b")
+
  c = c[(c.dates >= l1) & (c.dates <= l2)]
  diff = s3 - s2  
  if((diff == 0) & (radio_group == 'Monthly')):
      c = c[c.month == s2]
+     title= 'Monthly variation (' + str(m1)  +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      c = c.reset_index()
  elif((radio_group == 'Month-Month')):
      #c = c[(c.month >= s2) & (c.month <= s3)]
      #c = c.set_index('dates').resample('Y').sum()
      #c.year  = c.index.year
      #c = c.replace(0,np.nan)
+     title= 'Month to Month variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      c = c.reset_index()      
  elif((diff > 0) & (radio_group == 'Seasonal')):
      c = c[(c.month >= s2) & (c.month <= s3)]
      c = c.set_index('dates').resample('Y').sum()
      c.year  = c.index.year
      c = c.replace(0,np.nan)
+     title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      c = c.reset_index()
         
  elif((diff <= 0) & (radio_group == 'Seasonal')):
+     title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      j1 = s2
      j2 = s3 +12
      j3 = list(range(j1,j2+1))
@@ -374,11 +383,11 @@ def p1(s,s1,s2,s3,s4,radio_group):
       )]
 
 
- db1 = datetime.datetime.strptime(str(s2),"%m")
- m1 = db1.strftime("%b")
- db2 = datetime.datetime.strptime(str(s3),"%m")
- m2 = db2.strftime("%b")
- title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
+ #db1 = datetime.datetime.strptime(str(s2),"%m")
+ #m1 = db1.strftime("%b")
+ #db2 = datetime.datetime.strptime(str(s3),"%m")
+ #m2 = db2.strftime("%b")
+ #title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
  f.update_layout(title= '<b>'+ title + '</b>',title_x=0.5,
                    xaxis_title='Year',
                    yaxis_title='Rainfall (mm)')

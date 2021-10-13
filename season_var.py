@@ -228,13 +228,13 @@ s5= pn.widgets.Select(name = 'Month',width = 80, options =m4 ,value = 1, precede
 @pn.depends(radio_group.param.value,watch = True)
 def p5(radio_group):
  if(radio_group == 'Monthly') :
-   s2.param.precedence= -1
-   s3.param.precedence= -1
-   s5.param.precedence= 1
+   s2.visible=False
+   s3.visible=False
+   s5.visible=True
  else:
-   s2.param.precedence= 1
-   s3.param.precedence= 1
-   s5.param.precedence= -1
+   s2.visible=True
+   s3.visible=True
+   s5.visible=False
 
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value, s5.param.value ,radio_group.param.value,watch=True )

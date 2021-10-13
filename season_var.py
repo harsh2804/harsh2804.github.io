@@ -289,7 +289,7 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  
  c = c[(c.dates >= l1) & (c.dates <= l2)]
  diff = s3 - s2  
- if((diff == 0) & (radio_group == 'Monthly')):
+ if((radio_group == 'Monthly')):
      c = c[c.month == s5]
      title= 'Monthly variation (' + str(m1)  +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      #s2.value = s2

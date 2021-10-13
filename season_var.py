@@ -836,7 +836,7 @@ w4 = pn.Column(w1,  box3, w2,w3,p2,p1,p3, p4)
 
 
 pn.template.FastListTemplate(   title="O/o Climate Research and services, IMD Pune",  header=pn.panel('static/imd_logo.png',height=60),
-                            sidebar = [radio_group,box2,al,s4,s,s1,s2,s3],  
+                            sidebar = [box2,al,s4,s,s1,radio_group,s2,s3],  
                             main =[w4]).servable();
 
 

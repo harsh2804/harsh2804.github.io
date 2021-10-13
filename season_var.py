@@ -231,10 +231,23 @@ def p5(radio_group):
    s2.visible=False
    s3.visible=False
    s5.visible=True
- else:
+ 
+
+ if(radio_group == 'Yearly') :
+   s2.visible=False
+   s3.visible=False
+   s5.visible=False
+
+ if(radio_group == 'Seasonal') :
    s2.visible=True
    s3.visible=True
    s5.visible=False
+
+ if(radio_group == 'Month-Month') :
+   s2.visible=True
+   s3.visible=True
+   s5.visible=False
+ 
 
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value, s5.param.value ,radio_group.param.value,watch=True )

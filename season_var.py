@@ -223,7 +223,7 @@ radio_group = pn.widgets.RadioButtonGroup(
 
 
 
-@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value,radio_group.param.value)
+@pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value,radio_group.param.value,watch=True )
 #@asyncio.coroutine
 def p1(s,s1,s2,s3,s4,radio_group):
  #await asyncio.sleep(2)
@@ -277,6 +277,8 @@ def p1(s,s1,s2,s3,s4,radio_group):
  if((diff == 0) & (radio_group == 'Monthly')):
      c = c[c.month == s2]
      title= 'Monthly variation (' + str(m1)  +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
+     s2.value = s2
+     s3.value = s2
      c = c.reset_index()
  elif((radio_group == 'Month-Month')):
      #c = c[(c.month >= s2) & (c.month <= s3)]

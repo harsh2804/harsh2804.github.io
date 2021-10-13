@@ -219,7 +219,7 @@ plotly_pane6 = pn.pane.HTML()
 
 
 radio_group = pn.widgets.RadioButtonGroup(
-    name='Radio Button Group', options=['Monthly', 'Month-Month'], button_type='success',value='Monthly')
+    name='Radio Button Group', options=['Seasonal','Monthly', 'Month-Month'], button_type='success',value='Seasonal')
 
 
 
@@ -272,14 +272,20 @@ def p1(s,s1,s2,s3,s4,radio_group):
  if((diff == 0) & (radio_group == 'Monthly')):
      c = c[c.month == s2]
      c = c.reset_index()
- elif(diff > 0):
+ elif((radio_group == 'Month-Month')):
+     c = c[(c.month >= s2) & (c.month <= s3)]
+     #c = c.set_index('dates').resample('Y').sum()
+     #c.year  = c.index.year
+     #c = c.replace(0,np.nan)
+     c = c.reset_index()      
+ elif((diff > 0) & (radio_group == 'Seasonal')):
      c = c[(c.month >= s2) & (c.month <= s3)]
      c = c.set_index('dates').resample('Y').sum()
      c.year  = c.index.year
      c = c.replace(0,np.nan)
      c = c.reset_index()
         
- elif(diff <= 0):
+ elif((diff < 0) & (radio_group == 'Seasonal')):
      j1 = s2
      j2 = s3 +12
      j3 = list(range(j1,j2+1))

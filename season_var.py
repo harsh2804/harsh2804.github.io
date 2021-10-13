@@ -348,7 +348,18 @@ def p1(s,s1,s2,s3,s4):
  ax.figure.savefig('figure.png')
  #ax.set_xlim(c.year.min()-1,c.year.max()+2)
  '''
- f=   go.Figure(go.Scatter(x=c['year'], y=c['rain'] ,mode='lines+markers' )) 
+       
+ layout = go.Layout(
+    images=[dict(
+        source="static/imd_logo.png",
+        xref="paper", yref="paper",
+        x=1, y=1.05,
+        sizex=0.2, sizey=0.2,
+        xanchor="right", yanchor="bottom"
+      )])      
+       
+       
+ f=   go.Figure(go.Scatter(x=c['year'], y=c['rain'] ,mode='lines+markers' ),layout=layout) 
  db1 = datetime.datetime.strptime(str(s2),"%m")
  m1 = db1.strftime("%b")
  db2 = datetime.datetime.strptime(str(s3),"%m")

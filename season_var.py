@@ -695,7 +695,7 @@ def p2(s2,s3,s4):#,s3,s4):
         # x = list(df3[un]),
         #textposition = "inside",
         #))
-        f = px.bar(df3, x=un ,y='Year',color='status',orientation='h',title=title + un,barmode = 'group', hover_data=['Year'],template='plotly_white')#,pattern_shape=un)
+        f = px.bar(df3, x=un ,y='Year',color='status',orientation='h',title=title + un,barmode = 'stack', hover_data=['Year'],template='plotly_white')#,pattern_shape=un)
         #f = px.funnel(df3, x=un, y='Year')
         #f = go.Figure(go.Funnel(x=df3[un], y=df3['Year']) ) 
         #f =px.sunburst(df3,path=['status', 'rank'], values=un,hover_data=['Year'],template='simple_white',color = un)

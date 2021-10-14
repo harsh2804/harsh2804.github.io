@@ -693,10 +693,23 @@ def p2(s2,s3,s4):#,s3,s4):
         y1.sort(reverse=True)
         data= dict(rain= x1, year=y1)
 
-        f = go.Figure(go.Funnelarea(
-        text = y1,
-        values = x1
-        ))
+        #f = go.Figure(go.Funnelarea(
+        #text = y1,
+        #values = x1
+        #))
+
+        f = go.Figure(go.Funnel(
+        y = y1, #["Website visit", "Downloads", "Potential customers", "Requested price", "Finalized"],
+        x = x1, #[39, 27.4, 20.6, 11, 2],
+        textposition = "inside",
+        textinfo = "value",
+        opacity = 0.65, marker = {"color": ["deepskyblue", "lightsalmon", "tan", "teal", "silver"],
+        "line": {"width": [4, 2, 2, 3, 1, 1], "color": ["wheat", "wheat", "blue", "wheat", "wheat"]}},
+        connector = {"line": {"color": "royalblue", "dash": "dot", "width": 3}})
+        )
+
+
+
         #f = go.Figure()
 
         #f.add_trace(go.Funnel(

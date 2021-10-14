@@ -680,13 +680,16 @@ def p2(s2,s3,s4):#,s3,s4):
 
         df3.rename(columns={'dates': 'Year', pm: un}, inplace=True)
         #df3.sort_values(un,inplace=True)
-        df3=df3.sort_values(by=[un], ascending=False) 
+        df3=df3.sort_values(by=[un], ascending=False)
 
         config={
             "displaylogo": False
         }
         #f = px.bar(df3, x="status" ,y=un,color='status',orientation='v',title=title + un,barmode = 'stack', hover_data=['Year'],template='plotly_white')#,pattern_shape=un)
         df3 = df3.reset_index()
+        x1= list(df3[un].values)
+        y1= list(df3['Year'].values)
+        data= dict(rain= x1, year=y1)
         #f = go.Figure()
 
         #f.add_trace(go.Funnel(
@@ -696,7 +699,7 @@ def p2(s2,s3,s4):#,s3,s4):
         #textposition = "inside",
         #))
         #f = px.bar(df3, x=un ,y='Year',color='status',orientation='h',title=title + un,barmode = 'stack', hover_data=['Year'],template='plotly_white')#,pattern_shape=un)
-        f = px.funnel(df3, y=un, x='Year', color=un)
+        f = px.funnel(data, y='year', x='rain')
         #f = go.Figure(go.Funnel(x=df3[un], y=df3['Year']) ) 
         #f =px.sunburst(df3,path=['status', 'rank'], values=un,hover_data=['Year'],template='simple_white',color = un)
         f.update_layout(title='<b>'+title + un+'</b>',title_x=0.5)

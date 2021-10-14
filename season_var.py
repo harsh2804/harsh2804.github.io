@@ -555,8 +555,8 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
 
 
 
-@pn.depends(s2.param.value,s3.param.value,s4.param.value)#,s3.param.value,s4.param.value)
-def p2(s2,s3,s4):#,s3,s4):
+@pn.depends(s2.param.value,s3.param.value,s4.param.value,s5.param.value)#,s3.param.value,s4.param.value)
+def p2(s2,s3,s4,s5):#,s3,s4):
        # await asyncio.sleep(2)
         #if(s > s1):
          #  return
@@ -608,17 +608,17 @@ def p2(s2,s3,s4):#,s3,s4):
         
         
         if((radio_group == 'Monthly')):
-          mm = dd[s5]
+           mm = dd[s5]
           #df = df[(df.year >= int(startdate)) & (df.year <= int(enddate))] 
-          df2 = df2[df2.month ==  mm]
-          df2 = df2.dropna()
-          df2 = df2.reset_index()
-          df2.set_index('dates', inplace=True)
-          df2 = df2[pm]
+           df2 = df2[df2.month ==  mm]
+           df2 = df2.dropna()
+           df2 = df2.reset_index()
+           df2.set_index('dates', inplace=True)
+           df2 = df2[pm]
         elif((radio_group == 'Month-Month')):
-          df2 = df2.reset_index()
-          df2.set_index('dates', inplace=True)
-          df2 = df2[pm] 
+           df2 = df2.reset_index()
+           df2.set_index('dates', inplace=True)
+           df2 = df2[pm] 
         elif((radio_group == 'Yearly')):
            df2 = df2[(df2.month >= 1) & (df2.month <= 12)]
            df2 = df2.set_index('dates').resample('Ys').sum()

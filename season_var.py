@@ -727,8 +727,8 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
 
         colors = ['gold', 'mediumturquoise', 'darkorange', 'lightgreen', 'white']
         stt= list(df3['rank'].values) 
-        f= go.Figure(data=[go.Pie(labels=stt,
-                             values=res)])
+        f= go.Figure(data=[go.Pie(labels=y1,
+                             values=x1)])
         f.update_traces(hoverinfo='label', textinfo='value', textfont_size=20,
                   marker=dict(colors=colors, line=dict(color='#000000', width=2)))
 

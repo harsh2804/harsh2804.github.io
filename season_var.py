@@ -726,7 +726,7 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         #))
 
         colors = ['gold', 'mediumturquoise', 'darkorange', 'lightgreen', 'white']
-        stt= list(df3['status'].values) 
+        stt= list(df3['rank'].values) 
         f= go.Figure(data=[go.Pie(labels=stt,
                              values=x1)])
         f.update_traces(hoverinfo='label+percent', textinfo='value', textfont_size=20,

@@ -692,7 +692,8 @@ def p2(s2,s3,s4):#,s3,s4):
         #x1.sort(reverse=True)
         #y1.sort(reverse=True)
         #data= dict(rain= x1, year=y1)
-        res = list(map(lambda(i, j): str(i) + '('+ str(j)+')', zip(x1, y1)))
+        #res = list(map(lambda(i, j): str(i) + '('+ str(j)+')', zip(x1, y1)))
+        res = [str(i) + '('+ str(j) + ')'  for i, j in zip(x1, y1)]
         f = go.Figure(go.Funnelarea(
         text = res,
         values = y1

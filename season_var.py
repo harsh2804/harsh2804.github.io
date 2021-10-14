@@ -555,7 +555,7 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
 
 
 
-@pn.depends(s2.param.value,s3.param.value,s4.param.value,s5.param.value)#,s3.param.value,s4.param.value, watch=True)
+@pn.depends(s2.param.value,s3.param.value,s4.param.value,s5.param.value, watch=True)#,s3.param.value,s4.param.value, watch=True)
 def p2(s2,s3,s4,s5):#,s3,s4):
        # await asyncio.sleep(2)
         #if(s > s1):

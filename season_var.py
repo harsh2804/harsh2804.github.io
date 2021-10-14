@@ -694,8 +694,8 @@ def p2(s2,s3,s4):#,s3,s4):
         #data= dict(rain= x1, year=y1)
 
         f = go.Figure(go.Funnelarea(
-        text = y1,
-        values = x1
+        text = x1,
+        values = y1
         ))
 
         #f = go.Figure(go.Funnel(

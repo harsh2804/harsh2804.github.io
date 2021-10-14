@@ -555,8 +555,8 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
 
 
 
-@pn.depends(s2.param.value,s3.param.value,s4.param.value,s5.param.value, watch=True)#,s3.param.value,s4.param.value, watch=True)
-def p2(s2,s3,s4,s5):#,s3,s4):
+@pn.depends(s2.param.value,s3.param.value,s4.param.value,s5.param.value,  radio_group.param.value, watch=True)#,s3.param.value,s4.param.value, watch=True)
+def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
        # await asyncio.sleep(2)
         #if(s > s1):
          #  return
@@ -636,7 +636,7 @@ def p2(s2,s3,s4,s5):#,s3,s4):
            df2 = df2[pm]
            
          #r = list(range(int(start_month),int(end_month)))
-        elif((diff < 0)):# & (radio_group == 'Seasonal')):
+        elif((diff <= 0)):# & (radio_group == 'Seasonal')):
            st1 = df2.year.max()
            st2 = df2.year.min()
            st3 = df2.month.max()

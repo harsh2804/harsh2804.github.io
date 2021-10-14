@@ -732,6 +732,7 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
                              values=x1)])
         f.update_traces(hoverinfo='label', textinfo='value', textfont_size=20,
                   marker=dict(colors=colors, line=dict(color='#000000', width=2)))
+        f.update_layout(legend_title="Rank(Year)") 
 
 
 

@@ -692,6 +692,11 @@ def p2(s2,s3,s4):#,s3,s4):
         x1.sort(reverse=True)
         y1.sort(reverse=True)
         data= dict(rain= x1, year=y1)
+
+        f = go.Figure(go.Funnelarea(
+        text = y1,
+        values = x1
+        ))
         #f = go.Figure()
 
         #f.add_trace(go.Funnel(
@@ -701,7 +706,7 @@ def p2(s2,s3,s4):#,s3,s4):
         #textposition = "inside",
         #))
         #f = px.bar(df3, x=un ,y='Year',color='status',orientation='h',title=title + un,barmode = 'stack', hover_data=['Year'],template='plotly_white')#,pattern_shape=un)
-        f= px.funnel(df3, x=un, y='Year', color='status')
+        #f= px.funnel(df3, x=un, y='Year', color='status')
         #f = px.funnel(data, y='year', x='rain')
         #f = go.Figure(go.Funnel(x=df3[un], y=df3['Year']) ) 
         #f =px.sunburst(df3,path=['status', 'rank'], values=un,hover_data=['Year'],template='simple_white',color = un)

@@ -235,7 +235,7 @@ for i in range(1,13):
 s5= pn.widgets.Select(name = 'Month',width = 80, options = months_choices ,value = months_choices[0]   , precedence= -1  )
 
 
-@pn.depends(radio_group.param.value,watch = True)
+@pn.depends(radio_group.param.value,s4.param.value,  watch = True)
 def p5(radio_group):
  if(radio_group == 'Monthly') :
    s2.visible=False
@@ -257,7 +257,22 @@ def p5(radio_group):
    s2.visible=True
    s3.visible=True
    s5.visible=False
- 
+
+ b= getdata()
+ k = s4
+ k1 = b[b.name == k]
+ m1 = int(k1.year.min())
+ m2 = int(k1.year.max())
+ m3 = list(range(m1,m2+1))
+ m4 = list(k1.month.unique())
+ s.options = m3
+ s1.options = m3
+ s2.options = m4
+ s3.options = m4
+ s.value = m3[0]
+ s1.value = m3[-1]
+ s2.value = m4[0]
+ s3.value = m4[-1]
 
 
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value, s5.param.value ,radio_group.param.value,watch=True )

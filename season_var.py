@@ -679,7 +679,8 @@ def p2(s2,s3,s4):#,s3,s4):
         df3[pm] = df3[pm].round(2)
 
         df3.rename(columns={'dates': 'Year', pm: un}, inplace=True)
-        df3.sort_values(un,inplace=True)
+        #df3.sort_values(un,inplace=True)
+        df3=df3.sort_values(by=[un], ascending=False) 
 
         config={
             "displaylogo": False

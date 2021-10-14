@@ -236,7 +236,7 @@ s5= pn.widgets.Select(name = 'Month',width = 80, options = months_choices ,value
 
 
 @pn.depends(radio_group.param.value,s4.param.value,  watch = True)
-def p5(radio_group):
+def p5(radio_group,s4):
  if(radio_group == 'Monthly') :
    s2.visible=False
    s3.visible=False

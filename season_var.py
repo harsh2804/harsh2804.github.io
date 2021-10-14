@@ -689,9 +689,9 @@ def p2(s2,s3,s4):#,s3,s4):
         df3 = df3.reset_index()
         x1= list(df3[un].values)
         y1= list(df3['Year'].values)
-        x1.sort(reverse=True)
-        y1.sort(reverse=True)
-        data= dict(rain= x1, year=y1)
+        #x1.sort(reverse=True)
+        #y1.sort(reverse=True)
+        #data= dict(rain= x1, year=y1)
 
         #f = go.Figure(go.Funnelarea(
         #text = y1,

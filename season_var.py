@@ -45,7 +45,7 @@ js = {
     'html5buttons': 'https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js',
 }
     
-pn.extension('plotly' ,loading_spinner='dots',loading_color='#00aa41',sizing_mode = 'stretch_width',css_files=css, js_files=js)
+pn.extension('plotly' ,loading_spinner='dots',loading_color='#00aa41',sizing_mode = 'stretch_width',css_files=css, js_files=js,'echarts')
 #template = 'bootstrap'
 
 
@@ -221,7 +221,7 @@ plotly_pane6 = pn.pane.HTML()
 radio_group = pn.widgets.RadioButtonGroup(
     name='Radio Button Group', options=['Seasonal','Yearly',  'Monthly', 'Month-Month'], button_type='success',value='Seasonal')
 
-
+gau= pn.indicators.Gauge(name='Month', value=1, bounds=(1, 12))
 
 months_choices = []
 dd={}
@@ -241,22 +241,26 @@ def p5(radio_group,s4):
    s2.visible=False
    s3.visible=False
    s5.visible=True
+   gau.visible=True
  
 
  if(radio_group == 'Yearly') :
    s2.visible=False
    s3.visible=False
    s5.visible=False
+   gau.visible=False
 
  if(radio_group == 'Seasonal') :
    s2.visible=True
    s3.visible=True
    s5.visible=False
+   gau.visible=False
 
  if(radio_group == 'Month-Month') :
    s2.visible=True
    s3.visible=True
    s5.visible=False
+   gau.visible=False
 
  b= getdata()
  k = s4
@@ -331,6 +335,7 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  diff = s3 - s2  
  if((radio_group == 'Monthly')):
      mm = dd[s5]
+     gau.value= mm
      c = c[c.month == mm]
      title= 'Monthly variation (' + str(s5)  +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      #s2.value = s2

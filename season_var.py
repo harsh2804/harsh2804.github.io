@@ -231,9 +231,10 @@ for i in range(1,13):
     dd[m1]= i
 
 
-s5= pn.widgets.Select(name = 'Month',width = 80, options = months_choices ,value = months_choices[0]   , precedence= -1  )
+#s5= pn.widgets.Select(name = 'Month',width = 80, options = months_choices ,value = months_choices[0]   , precedence= -1  )
 gau= pn.indicators.Gauge(name='Selected Month', value=1, bounds=(0, 12),  format='{value}'  , num_splits=2  )
 
+s5 = pn.widgets.DiscreteSlider(name='Month', options= months_choices , value= months_choices[0],  precedence= -1   )
 
 @pn.depends(radio_group.param.value,s4.param.value,  watch = True)
 def p5(radio_group,s4):

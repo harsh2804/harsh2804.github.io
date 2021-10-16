@@ -752,6 +752,7 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         })
         col_one_list1 = df3[un].tolist()
         col_one_list2 = df3['Year'].tolist()
+        col_one_list2= [str(x) for x in col_one_list2]
         f = go.Figure(go.Funnel(
         y =   col_one_list2 ,
         x = col_one_list1))

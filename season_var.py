@@ -221,7 +221,6 @@ plotly_pane6 = pn.pane.HTML()
 radio_group = pn.widgets.RadioButtonGroup(
     name='Radio Button Group', options=['Seasonal','Yearly',  'Monthly', 'Month-Month'], button_type='success',value='Seasonal')
 
-gau= pn.indicators.Gauge(name='Month', value=1, bounds=(1, 12))
 
 months_choices = []
 dd={}
@@ -233,6 +232,7 @@ for i in range(1,13):
 
 
 s5= pn.widgets.Select(name = 'Month',width = 80, options = months_choices ,value = months_choices[0]   , precedence= -1  )
+gau= pn.indicators.Gauge(name='Selected Month', value=1, bounds=(0, 20),  format='dd[{value}]'  )
 
 
 @pn.depends(radio_group.param.value,s4.param.value,  watch = True)

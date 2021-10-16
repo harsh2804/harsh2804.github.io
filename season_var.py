@@ -755,8 +755,8 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         col_one_list2 = df3['Year'].tolist()
         col_one_list2= [str(x) for x in col_one_list2]
         res2 = [str(i) + '('+ str(j) + ')'  for i, j in zip(col_one_list1,  col_one_list2)]
-        f = go.Figure(go.Funnel(
-        y =   res2 ,
+        f = go.Figure(go.Funnel(name = '5 highest values',
+        y =   col_one_list2 ,
         x = col_one_list1,
         textinfo = "value",
         opacity = 0.65, marker = {"color": ["deepskyblue", "lightsalmon", "tan", "teal", "silver"],

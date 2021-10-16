@@ -727,11 +727,11 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         colors = ['gold', 'mediumturquoise', 'darkorange', 'lightgreen', 'white']
         stt= list(df3['rank'].values) 
         res1 = [str(i) + '('+ str(j) + ')'  for i, j in zip(stt, y1)]
-        f= go.Figure(data=[go.Pie(labels=res1,
-                             values=x1)])
-        f.update_traces(hoverinfo='label', textinfo='value', textfont_size=20,
-                  marker=dict(colors=colors, line=dict(color='#000000', width=2)))
-        f.update_layout(legend_title="Rank(Year)") 
+        #f= go.Figure(data=[go.Pie(labels=res1,
+        #                     values=x1)])
+        #f.update_traces(hoverinfo='label', textinfo='value', textfont_size=20,
+        #          marker=dict(colors=colors, line=dict(color='#000000', width=2)))
+        #f.update_layout(legend_title="Rank(Year)") 
 
 
 
@@ -758,7 +758,7 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         #))
         #f = px.bar(df3, x=un ,y='Year',color='status',orientation='h',title=title + un,barmode = 'stack', hover_data=['Year'],template='plotly_white')#,pattern_shape=un)
         #f= px.funnel(df3, x=un, y='Year', color='status')
-        #f = px.funnel(data, y='year', x='rain')
+        f = px.funnel(y=y1, x=x1)
         #f = go.Figure(go.Funnel(x=df3[un], y=df3['Year']) ) 
         #f =px.sunburst(df3,path=['status', 'rank'], values=un,hover_data=['Year'],template='simple_white',color = un)
         f.update_layout(title='<b>'+title + un+'</b>',title_x=0.5)

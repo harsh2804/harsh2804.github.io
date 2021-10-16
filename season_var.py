@@ -750,7 +750,9 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         {'year': y1,
         'rain': x1
         })
-
+        f = go.Figure(go.Funnel(
+        y = ["Website visit", "Downloads", "Potential customers", "Requested price", "invoice sent"],
+        x = [39, 27.4, 20.6, 11, 2]))
         #f = go.Figure()
 
         #f.add_trace(go.Funnel(
@@ -761,7 +763,7 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         #))
         #f = px.bar(df3, x=un ,y='Year',color='status',orientation='h',title=title + un,barmode = 'stack', hover_data=['Year'],template='plotly_white')#,pattern_shape=un)
         #f= px.funnel(df3, x=un, y='Year', color='status')
-        f = px.funnel(percentile_list,x='rain', y='year')
+        #f = px.funnel(percentile_list,x='rain', y='year')
         #f = go.Figure(go.Funnel(x=df3[un], y=df3['Year']) ) 
         #f =px.sunburst(df3,path=['status', 'rank'], values=un,hover_data=['Year'],template='simple_white',color = un)
         f.update_layout(title='<b>'+title + un+'</b>',title_x=0.5)

@@ -750,9 +750,11 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         {'year': y1,
         'rain': x1
         })
+        col_one_list1 = df3[un].tolist()
+        col_one_list2 = df3['Year'].tolist()
         f = go.Figure(go.Funnel(
-        y = ["Website visit", "Downloads", "Potential customers", "Requested price", "invoice sent"],
-        x = [39, 27.4, 20.6, 11, 2]))
+        y =   col_one_list2 ,
+        x = col_one_list1))
         #f = go.Figure()
 
         #f.add_trace(go.Funnel(

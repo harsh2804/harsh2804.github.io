@@ -232,7 +232,7 @@ for i in range(1,13):
 
 
 s5= pn.widgets.Select(name = 'Month',width = 80, options = months_choices ,value = months_choices[0]   , precedence= -1  )
-gau= pn.indicators.Gauge(name='Selected Month', value=1, bounds=(1, 12),  format='{value}'  , num_splits=1  )
+gau= pn.indicators.Gauge(name='Selected Month', value=1, bounds=(0, 12),  format='{value}'  , num_splits=2  )
 
 
 @pn.depends(radio_group.param.value,s4.param.value,  watch = True)

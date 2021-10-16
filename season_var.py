@@ -751,11 +751,17 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         'rain': x1
         })
         col_one_list1 = df3[un].tolist()
+        col_one_list1.sort(reverse=True)
         col_one_list2 = df3['Year'].tolist()
         col_one_list2= [str(x) for x in col_one_list2]
+        res2 = [str(i) + '('+ str(j) + ')'  for i, j in zip(col_one_list1,  col_one_list2)]
         f = go.Figure(go.Funnel(
-        y =   col_one_list2 ,
-        x = col_one_list1))
+        y =   res2 ,
+        x = col_one_list1,
+        textinfo = "value",
+        opacity = 0.65, marker = {"color": ["deepskyblue", "lightsalmon", "tan", "teal", "silver"],
+        "line": {"width": [4, 2, 2, 3, 1, 1], "color": ["wheat", "wheat", "blue", "wheat", "wheat"]}},
+        connector = {"line": {"color": "royalblue", "dash": "dot", "width": 3}} )) 
         #f = go.Figure()
 
         #f.add_trace(go.Funnel(

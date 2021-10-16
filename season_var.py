@@ -758,7 +758,7 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         #))
         #f = px.bar(df3, x=un ,y='Year',color='status',orientation='h',title=title + un,barmode = 'stack', hover_data=['Year'],template='plotly_white')#,pattern_shape=un)
         #f= px.funnel(df3, x=un, y='Year', color='status')
-        f = px.funnel(y=y1, x=x1)
+        f = px.funnel(x=x1, y=y1)
         #f = go.Figure(go.Funnel(x=df3[un], y=df3['Year']) ) 
         #f =px.sunburst(df3,path=['status', 'rank'], values=un,hover_data=['Year'],template='simple_white',color = un)
         f.update_layout(title='<b>'+title + un+'</b>',title_x=0.5)

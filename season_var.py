@@ -451,7 +451,7 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  f.layout.images = [dict(
         source=im,
         xref="paper", yref="paper",
-        x=0.0, y=1.02,
+        x=0.0, y=1.05,
         sizex=0.2, sizey=0.2,
         xanchor="center", yanchor="bottom"
       )]
@@ -994,7 +994,7 @@ w4 = pn.Column(w1,  box3, w2,w3,p2,p1,p3, p4, p5)
 
 
 
-pn.template.FastListTemplate(   title="O/o Climate Research and services, IMD Pune",  header=pn.panel('static/imd_logo.png',height=60),
+pn.template.FastListTemplate(   title="O/o Climate Research and services, IMD Pune",  header=pn.panel('static/imd_logo.png',height=50),
                             sidebar = [box2,s4,s,s1,radio_group,s2,s3, s5, gau],  
                             main =[w4]).servable();
 

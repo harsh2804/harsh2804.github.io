@@ -451,7 +451,7 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  f.layout.images = [dict(
         source=im,
         xref="paper", yref="paper",
-        x=0.0, y=1.05,
+        x=1.05, y=1.06,
         sizex=0.2, sizey=0.2,
         xanchor="center", yanchor="bottom"
       )]

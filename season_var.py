@@ -447,8 +447,9 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
 
        
  f=   go.Figure(go.Scatter(x=c['year'], y=c['rain'] ,mode='lines+markers' ))
+ im = Image.open(r"static/imd_logo.png")  
  f.layout.images = [dict(
-        source="https://github.com/harsh2804/season-var/blob/main/static/imd_logo.png",
+        source=im,
         xref="paper", yref="paper",
         x=0.1, y=1.05,
         sizex=0.4, sizey=0.4,

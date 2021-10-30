@@ -444,9 +444,10 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  #ax.set_xlim(c.year.min()-1,c.year.max()+2)
  '''
        
-
-       
- f=   go.Figure(go.Scatter(x=c['year'], y=c['rain'] ,mode='lines+markers' ))
+ if((radio_group == 'Month-Month')):
+  f= px.line(c, x="year", y="rain", color='month')
+ else:   
+  f=   go.Figure(go.Scatter(x=c['year'], y=c['rain'] ,mode='lines+markers' ))
  im = Image.open(r"static/imd_logo.png")  
  f.layout.images = [dict(
         source=im,

@@ -825,7 +825,7 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         ax.set_ylabel('rainfall(mm)')
        
         #ax.text(x1,y1,'*max-->' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
-        ax.set_xlim(c.year.min()-1,c.year.max()+2)
+        #ax.set_xlim(c.year.min()-1,c.year.max()+2)
         #ax.figure.savefig('figure.png')
         matpl.object = f
         matpl.dpi=200

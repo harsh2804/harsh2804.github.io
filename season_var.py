@@ -803,7 +803,7 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         c= getdata()
         c= c[c.name == s4]
         c= c.replace(-99.9,0)
-        c['ym']= c['year'].astype(str) + '-' +  c['month']
+        c['ym']= c['year'].astype(str) + '-' +  c['month'].astype(str)
   
         m1 = c['rain'].idxmax()
         x1 = c['year'][m1]

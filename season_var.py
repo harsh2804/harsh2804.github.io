@@ -217,6 +217,7 @@ plotly_pane8 = pn.pane.Plotly()
 plotly_pane5 = pn.pane.Plotly()
 plotly_pane6 = pn.pane.HTML()
 
+matpl = pn.pane.Matplotlib()
 
 radio_group = pn.widgets.RadioButtonGroup(
     name='Radio Button Group', options=['Seasonal','Yearly',  'Monthly', 'Month-Month'], button_type='success',value='Seasonal')
@@ -446,8 +447,9 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
        
  if((radio_group == 'Month-Month')):
   import calendar
-  c['Month'] = c['month'].apply(lambda x: calendar.month_abbr[x]) 
-  f= px.line(c, x="year", y="rain", color='Month')#, symbol="Month")
+  c['Month'] = c['month'].apply(lambda x: calendar.month_abbr[x])
+  c['ym']= c['year'].astype(str) + '-' +  c['Month']
+  f= px.line(c, x="ym", y="rain", color='Month')#, symbol="Month")
  else:   
   f=   go.Figure(go.Scatter(x=c['year'], y=c['rain'] ,mode='lines+markers' ))
  im = Image.open(r"static/imd_logo.png")  

@@ -890,6 +890,38 @@ def p4(s4):#,s1,s2,s3,s4):
 
        f2=codecs.open("season_anime.html", 'r')
        plotly_pane6.object = f2.read()
+
+       c= getdata()
+       c= c[c.name == s4]
+       c= c.replace(-99.9,0)
+       m1 = c['rain'].idxmax()
+       x1 = c['year'][m1]
+       y1 = round(c['rain'][m1],2)
+       f = Figure(figsize=(12,9),dpi = 200)
+
+       plt.style.use('fivethirtyeight')   
+       ax =f.subplots()
+       FigureCanvas(f)
+       
+       ax.figure.figimage(im1, f.bbox.xmax-width, f.bbox.ymax-height)      
+ 
+ 
+       
+       f.suptitle('monthly dataset of '+ s4, fontsize=20)
+ 
+       ax.plot(c.year,c.rain,marker = 'o')
+       ax.set_xlabel('year')
+       ax.set_ylabel('rainfall(mm)')
+       
+       ax.text(x1,y1,'*max-->' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
+       ax.set_xlim(c.year.min()-1,c.year.max()+2)
+       #ax.figure.savefig('figure.png')
+       matpl.object = f
+       matpl.dpi=200
+
+
+
+
       # html_pane = pn.pane.HTML(f2.read())
        
       # return html_pane
@@ -992,11 +1024,12 @@ gsp[1,2:3] = p2
 #p6=asyncio.get_event_loop().run_until_complete(p1(s, s1, s2, s3, s4)) 
 
 #w1 = pn.Column(pn.Card(file_download, plotly_pane7,  pn.panel(p1,loading_indicator=False)))
+z1=  pn.Card(matpl)
 w1 = pn.Card(plotly_pane7)
 
 w2 = pn.Card(pn.Row(  plotly_pane5,plotly_pane6 ),sizing_mode = 'stretch_width')
 w3 =  pn.Card(pn.Row(table_with_export_buttons, plotly_pane8),title='Statistical Table for selected period',collapsible =False,background='WhiteSmoke',header_background='success',sizing_mode = 'stretch_width')
-w4 = pn.Column(w1,  box3, w2,w3,p2,p1,p3, p4, p5)
+w4 = pn.Column(z1,w1,  box3, w2,w3,p2,p1,p3, p4, p5)
 
 
 

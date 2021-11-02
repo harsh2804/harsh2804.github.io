@@ -800,6 +800,35 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         #plotly_pane = pn.pane.Plotly(f) 
        
         #return plotly_pane
+        c= getdata()
+        c= c[c.name == s4]
+        c= c.replace(-99.9,0)
+        c['ym']= c['year'].astype(str) + '-' +  c['month']
+  
+        m1 = c['rain'].idxmax()
+        x1 = c['year'][m1]
+        y1 = round(c['rain'][m1],2)
+        f = Figure(figsize=(9,7),dpi = 200)
+
+        plt.style.use('fivethirtyeight')   
+        ax =f.subplots()
+        FigureCanvas(f)
+       
+        ax.figure.figimage(im1, f.bbox.xmax-width, f.bbox.ymax-height)      
+ 
+ 
+       
+        f.suptitle('monthly dataset of '+ s4, fontsize=20)
+ 
+        ax.plot(c.ym,c.rain,marker = 'o')
+        ax.set_xlabel('year')
+        ax.set_ylabel('rainfall(mm)')
+       
+        #ax.text(x1,y1,'*max-->' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
+        ax.set_xlim(c.year.min()-1,c.year.max()+2)
+        #ax.figure.savefig('figure.png')
+        matpl.object = f
+        matpl.dpi=200
 
      
 
@@ -891,33 +920,7 @@ def p4(s4):#,s1,s2,s3,s4):
        f2=codecs.open("season_anime.html", 'r')
        plotly_pane6.object = f2.read()
 
-       c= getdata()
-       c= c[c.name == s4]
-       c= c.replace(-99.9,0)
-       m1 = c['rain'].idxmax()
-       x1 = c['year'][m1]
-       y1 = round(c['rain'][m1],2)
-       f = Figure(figsize=(12,9),dpi = 200)
-
-       plt.style.use('fivethirtyeight')   
-       ax =f.subplots()
-       FigureCanvas(f)
        
-       ax.figure.figimage(im1, f.bbox.xmax-width, f.bbox.ymax-height)      
- 
- 
-       
-       f.suptitle('monthly dataset of '+ s4, fontsize=20)
- 
-       ax.plot(c.year,c.rain,marker = 'o')
-       ax.set_xlabel('year')
-       ax.set_ylabel('rainfall(mm)')
-       
-       ax.text(x1,y1,'*max-->' + str(y1) +'(' + str(x1) + ')',color='red',ha='right',va='bottom')
-       ax.set_xlim(c.year.min()-1,c.year.max()+2)
-       #ax.figure.savefig('figure.png')
-       matpl.object = f
-       matpl.dpi=200
 
 
 

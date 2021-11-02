@@ -217,7 +217,7 @@ plotly_pane8 = pn.pane.Plotly()
 plotly_pane5 = pn.pane.Plotly()
 plotly_pane6 = pn.pane.HTML()
 
-matpl = pn.pane.Matplotlib()
+matpl = pn.pane.Plotly()
 
 radio_group = pn.widgets.RadioButtonGroup(
     name='Radio Button Group', options=['Seasonal','Yearly',  'Monthly', 'Month-Month'], button_type='success',value='Seasonal')
@@ -800,6 +800,7 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         #plotly_pane = pn.pane.Plotly(f) 
        
         #return plotly_pane
+        '''
         c= getdata()
         c= c[c.name == s4]
         c= c.replace(-99.9,0)
@@ -829,6 +830,14 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         #ax.figure.savefig('figure.png')
         matpl.object = f
         matpl.dpi=200
+        '''
+        c= getdata()
+        c= c[c.name == s4]
+        c= c.replace(-99.9,0)
+        fig = px.bar(c, x="year", y="rain", color="month", title='monthly dataset of '+ s4) 
+        fig.layout.autosize = True
+        matpl.object = fig
+        matpl.config={'responsive': True, 'displaylogo': False }
 
      
 

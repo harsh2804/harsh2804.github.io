@@ -451,8 +451,9 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
   c['ym']= c['year'].astype(str) + '-' +  c['Month']
   f= px.line(c, x="year", y="rain", color='Month')#, symbol="Month")
   f.update_layout(xaxis_type='category')
- else:   
-   im = Image.open(r"static/imd_logo.png")  
+ else:
+  f=   go.Figure(go.Scatter(x=c['year'], y=c['temp'] ,mode='lines+markers' ))           
+ im = Image.open(r"static/imd_logo.png")  
  f.layout.images = [dict(
         source=im,
         xref="paper", yref="paper",

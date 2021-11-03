@@ -287,7 +287,9 @@ def p5(radio_group,s4):
 @pn.depends(s.param.value,s1.param.value,s2.param.value,s3.param.value,s4.param.value, s5.param.value ,radio_group.param.value,watch=True )
 #@asyncio.coroutine
 def p1(s,s1,s2,s3,s4,s5,radio_group):
- s3 = s2+s3      
+ s3 = s2+s3
+ if(s3 > 12):
+   s3 = s3%12           
  #await asyncio.sleep(2)
  al.object='welcome to seasonal plot'
  al.alert_type = 'info'
@@ -600,7 +602,9 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
          #  return
        # elif((s == s1) &  (s2 > s3)):
          #  return
-        s3 = s2+s3      
+        s3 = s2+s3
+        if(s3 > 12):
+         s3 = s3%12  
         mm1 = s2  #strptime(st_mon,'%b').tm_mon
         mm2 = s3 #strptime(et_mon,'%b').tm_mon
         a = pd.read_excel('subdivision_data_1901-2019 _m1.xlsx',engine='openpyxl')

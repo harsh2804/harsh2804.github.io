@@ -351,15 +351,6 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
      #s2.param.precedence=-1
      #s3.param.precedence=-1
      c = c.reset_index()
- '''
- elif((diff == 'Month-Month')):
-     #c = c[(c.month >= s2) & (c.month <= s3)]
-     #c = c.set_index('dates').resample('Y').sum()
-     #c.year  = c.index.year
-     #c = c.replace(0,np.nan)
-     title= 'Month to Month variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
-     c = c.reset_index()
- '''    
  elif((diff == 11)):
      c = c[(c.month >= 1) & (c.month <= 12)]
      c = c.set_index('dates').resample('Y').sum()

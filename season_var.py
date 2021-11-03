@@ -560,11 +560,11 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  import calendar
  c= c[c.name == s4]
  c['Month'] = c['month'].apply(lambda x: calendar.month_abbr[x])  
- c= c.replace(-99.9,0)
+ c= c.replace(-99.9,np.nan)
  c['ym']= c['year'].astype(str) + '-' +  c['Month']
- fig= px.line(c, x="year", y="rain")#, color='Month')#, symbol="Month")
+ fig= px.line(c, x="ym", y="rain")#, color='Month')#, symbol="Month")
  fig.update_layout(xaxis_type='category')      
- #fig = px.bar(c, x="year", y="rain", color="Month", title='monthly dataset of '+ s4) 
+ #fig = px.bar(c, x="ym", y="rain", color="Month", title='monthly dataset of '+ s4) 
  fig.layout.autosize = True
  matpl.object = fig
  matpl.config={'responsive': True, 'displaylogo': False }

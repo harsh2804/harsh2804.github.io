@@ -558,7 +558,7 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  #return f#pn.pane.Matplotlib(f)
  c= getdata()
  import calendar
- c= c[c.name == ' Arunachal Pradesh']
+ c= c[c.name == s4]
  c['Month'] = c['month'].apply(lambda x: calendar.month_abbr[x])
  #c = c[c.rain >= 0]
  #c['year'] = c['year'].astype(int)

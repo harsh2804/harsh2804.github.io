@@ -576,7 +576,9 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  c = c.set_index('year-month')
  c = c.reindex(res, fill_value=np.nan)
  c = c.reset_index()
- c = c.sort_values(['year','month'])
+ c['month1'] = pd.to_datetime(c['year-month'], format='%Y-%b').dt.month
+ c['year1'] = pd.to_datetime(c['year-month'], format='%Y-%b').dt.year
+ c = c.sort_values(['year1','month1'])
 
  fig= px.line(c, x="year-month", y="rain",title='Available Monthly  data of '+ s4)#, color='Month')#, symbol="Month")
  fig.update_layout(xaxis_type='category',title_x=0.5)      

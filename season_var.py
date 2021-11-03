@@ -561,9 +561,16 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  c= c[c.name == s4]
  c['Month'] = c['month'].apply(lambda x: calendar.month_abbr[x])
  c = c[c.rain >= 0]
- #c= c.replace(-99.9,np.nan)
  c['year-month']= c['year'].astype(str) + '-' +  c['Month']
- c = c.reset_index()      
+ c = c.reset_index()
+ idx = list(range(c.year.min(),c.year.max()+1))
+ idx = [str(x) for x in idx]
+ idx1 =list(c['Month'].values)  #   list(range(1,13))
+ res = [i +'-' +  j for i, j in zip(idx, idx1)]
+ c = c.set_index('year-month')
+ c = c.reindex(res, fill_value=np.nan)
+ c = c.reset_index()
+
  fig= px.line(c, x="year-month", y="rain",title='Available Monthly  data of '+ s4)#, color='Month')#, symbol="Month")
  fig.update_layout(xaxis_type='category',title_x=0.5)      
  #fig = px.bar(c, x="ym", y="rain", color="Month", title='monthly dataset of '+ s4) 

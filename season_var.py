@@ -452,7 +452,7 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
   f= px.line(c, x="year", y="rain", color='Month')#, symbol="Month")
   f.update_layout(xaxis_type='category')
  else:
-  f=   go.Figure(go.Scatter(x=c['year'], y=c['temp'] ,mode='lines+markers' ))           
+  f=   go.Figure(go.Scatter(x=c['year'], y=c['rain'] ,mode='lines+markers' ))           
  im = Image.open(r"static/imd_logo.png")  
  f.layout.images = [dict(
         source=im,

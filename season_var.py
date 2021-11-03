@@ -558,7 +558,7 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  #return f#pn.pane.Matplotlib(f)
  c= getdata()
  import calendar
- c= c[c.name == 'Andaman ']
+ c= c[c.name == ' Arunachal Pradesh']
  c['Month'] = c['month'].apply(lambda x: calendar.month_abbr[x])
  #c = c[c.rain >= 0]
  #c['year'] = c['year'].astype(int)
@@ -572,6 +572,7 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  h = len(idx1)
  idx = idx*h
  idx1 = idx1*g
+ idx.sort()
  res = [i +'-' +  j for i, j in zip(idx, idx1)]
  c = c.set_index('year-month')
  c = c.reindex(res, fill_value=np.nan)

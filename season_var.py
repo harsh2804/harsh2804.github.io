@@ -358,7 +358,7 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
      c = c.replace(0,np.nan)
      title= 'Yearly variation ' +   ' of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      c = c.reset_index()
- elif((diff > 0))# & (radio_group == 'Seasonal')):
+ elif((diff > 0)):# & (radio_group == 'Seasonal')):
      c = c[(c.month >= s2) & (c.month <= s3)]
      c = c.set_index('dates').resample('Y').sum()
      c.year  = c.index.year
@@ -366,7 +366,7 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
      title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      c = c.reset_index()
         
- elif((diff < 0))# & (radio_group == 'Seasonal')):
+ elif((diff < 0)):# & (radio_group == 'Seasonal')):
      title= 'Seasonal variation (' + str(m1) + '-' + str(m2) +   ') of Rainfall over '+ s4 + '<br> for the period ' + str(s) + '-'  + str(s1)
      j1 = s2
      j2 = s3 +12

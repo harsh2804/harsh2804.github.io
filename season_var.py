@@ -449,11 +449,10 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
   import calendar
   c['Month'] = c['month'].apply(lambda x: calendar.month_abbr[x])
   c['ym']= c['year'].astype(str) + '-' +  c['Month']
-  f= px.line(c, x="ym", y="rain", color='Month')#, symbol="Month")
+  f= px.line(c, x="year", y="rain", color='Month')#, symbol="Month")
   f.update_layout(xaxis_type='category')
  else:   
-  f=   go.Figure(go.Scatter(x=c['year'], y=c['rain'] ,mode='lines+markers' ))
- im = Image.open(r"static/imd_logo.png")  
+   im = Image.open(r"static/imd_logo.png")  
  f.layout.images = [dict(
         source=im,
         xref="paper", yref="paper",
@@ -556,6 +555,15 @@ def p1(s,s1,s2,s3,s4,s5,radio_group):
  #pn.param.ParamMethod.loading_indicator = False
  #ld.value=False         
  #return f#pn.pane.Matplotlib(f)
+ c= getdata()
+ import calendar
+ c= c[c.name == s4]
+ c['Month'] = c['month'].apply(lambda x: calendar.month_abbr[x])  
+ c= c.replace(-99.9,0)
+ fig = px.bar(c, x="year", y="rain", color="Month", title='monthly dataset of '+ s4) 
+ fig.layout.autosize = True
+ matpl.object = fig
+ matpl.config={'responsive': True, 'displaylogo': False }
  
 
 
@@ -831,13 +839,7 @@ def p2(s2,s3,s4,s5, radio_group):#,s3,s4):
         matpl.object = f
         matpl.dpi=200
         '''
-        c= getdata()
-        c= c[c.name == s4]
-        c= c.replace(-99.9,0)
-        fig = px.bar(c, x="year", y="rain", color="month", title='monthly dataset of '+ s4) 
-        fig.layout.autosize = True
-        matpl.object = fig
-        matpl.config={'responsive': True, 'displaylogo': False }
+        
 
      
 

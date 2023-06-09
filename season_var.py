@@ -2,7 +2,7 @@ from PIL import Image
 import matplotlib.cbook as cbook
 import matplotlib.image as image
 from matplotlib.dates import DateFormatter
-import numba as nb
+#import numba as nb
 from time import strptime
 import plotly.express as px
 from plotly.offline import plot
